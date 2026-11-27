@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Akademia Śląska – strona główna</title>
+  <title>Strona główna – Akademia Śląska</title>
   <script>(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('as-text-size');if(t==='2'||t==='3')d.classList.add('text-size-'+t);if(localStorage.getItem('as-high-contrast')==='1')d.classList.add('high-contrast');}catch(e){}})();</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +31,7 @@
       <a class="logo" href="index.html"><span class="logo__mark" aria-hidden="true">AŚ</span>Akademia Śląska<span class="sr-only"> – strona główna</span></a>
     </div>
     <nav class="main-nav" aria-label="Główne menu">
-      <ul class="container">
+      <ul class="container" role="list">
         <li><a href="index.html" aria-current="page">Strona główna</a></li>
         <li><a href="studies.html">Studia</a></li>
         <li><a href="accessibility.html">Dostępność</a></li>
@@ -47,7 +47,7 @@
     <p class="lead">Uczelnia o praktycznym profilu kształcenia. Studia artystyczne, techniczne, medyczne i biznesowe w Katowicach, Zabrzu, Rybniku i Jaworznie.</p>
     
     <h2>Na skróty</h2>
-    <ul class="tiles">
+    <ul class="tiles" role="list">
       <li class="tile">
         <h3><a href="studies.html">Studia</a></h3>
         <p>Kierunki, rekrutacja, plan zajęć i dziekanat.</p>
@@ -89,9 +89,9 @@
       <dt>Adres</dt>
       <dd>ul. Rolna 43, 40-555 Katowice</dd>
       <dt>Telefon</dt>
-      <dd><a href="tel:+48321110400">+48 32 111 04 00</a></dd>
+      <dd class="action"><a href="tel:+48321110400">+48 32 111 04 00</a></dd>
       <dt>E-mail</dt>
-      <dd><a href="mailto:as@akademiaslaska.pl">as@akademiaslaska.pl</a></dd>
+      <dd class="action"><a href="mailto:as@akademiaslaska.pl">as@akademiaslaska.pl</a></dd>
     </dl>
   </main>
 
@@ -99,9 +99,19 @@
     <div class="container">
       <h2>Potrzebujesz pomocy?</h2>
       <ul>
-        <li>Dziekanat w Katowicach: wtorek i środa 9:00–14:00, piątek 10:00–15:00 (<a href="studies.html#dean-office">wszystkie godziny</a>)</li>
-        <li>Biuro ds. Osób z Niepełnosprawnościami: <a href="tel:+48693693989">+48 693 693 989</a>, <a href="mailto:niepelnosprawni@wst.com.pl">niepelnosprawni@wst.com.pl</a></li>
-        <li>Centrala: <a href="mailto:as@akademiaslaska.pl">as@akademiaslaska.pl</a>, ul. Rolna 43, 40-555 Katowice</li>
+        <li>
+          Dziekanat Wydziału Architektury, Budownictwa i Sztuk Stosowanych w Katowicach: wtorek i środa 9:00–14:00, piątek 10:00–15:00
+          <a href="studies.html#dean-office">Wszystkie godziny dziekanatu</a>
+        </li>
+        <li>
+          Biuro ds. Osób z Niepełnosprawnościami:
+          <a href="tel:+48693693989">+48 693 693 989</a>
+          <a href="mailto:niepelnosprawni@wst.com.pl">niepelnosprawni@wst.com.pl</a>
+        </li>
+        <li>
+          Centrala, ul. Rolna 43, 40-555 Katowice:
+          <a href="mailto:as@akademiaslaska.pl">as@akademiaslaska.pl</a>
+        </li>
       </ul>
     </div>
   </footer>

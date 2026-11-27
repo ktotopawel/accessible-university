@@ -38,3 +38,5 @@ reports/
 # --- Environment variables and secrets ---
 .env
 .env.*
+
+.claude/
