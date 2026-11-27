@@ -19,7 +19,7 @@ docker build -t accessible-university .
 docker run --rm -p 8080:80 accessible-university
 ```
 
-The Dockerfile copies every top-level `*.html` (plus `css/` and `js/`), so new pages are picked up automatically, but pages must stay in the repo root (flat structure). The image bakes files in, so rebuild after every edit. `.dockerignore` excludes `*.md`.
+The Dockerfile copies every top-level `*.html` (plus `css/`, `js/` and `video/`), so new pages are picked up automatically, but pages must stay in the repo root (flat structure). The image bakes files in, so rebuild after every edit. `.dockerignore` excludes `*.md`.
 
 After changing any page, `css/style.css` or `js/a11y.js`, run a WCAG 2.2 audit on the affected files and fix what it reports before calling the work done. If the local read-only `wcag-auditor` subagent exists (`.claude/agents/wcag-auditor.md`; `.claude/` is gitignored, so it is not part of the repo), use it.
 

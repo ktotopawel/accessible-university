@@ -144,6 +144,7 @@ summary { padding-block: 0.6rem; cursor: pointer; }
 
 .player { min-height: 12rem; display: flex; align-items: center; justify-content: center; text-align: center; }
 .player p { margin: 0; }
+.lesson-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; margin-block: 1rem; background: #000000; }
 
 .lessons > li[aria-current] { padding-block: 0.25rem; }
 

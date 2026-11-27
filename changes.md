@@ -1,3 +1,15 @@
+# Zmiany – 28 listopada 2026
+
+## Kurs „Liczby zespolone”
+
+- Prawdziwe wideo `video/liczby-zespolone.mp4` (lekcja 1 kursu „Algebra dla studentów”, 2 min 12 s, 3,9 MB) z obrazkiem podglądu zamiast placeholdera odtwarzacza.
+- Strona lekcji `lesson-math-complex-numbers.html` zastąpiła przykładową lekcję „Pochodne: wstęp”. Zawiera natywny odtwarzacz, link do pobrania, spis rozdziałów z wideo, nagłówek „Transkrypcja” i listę lekcji. Kafelek w `courses-science.html` wskazuje na nową lekcję.
+- Z kafelka i lekcji usunięto znaczniki „Napisy / Transkrypcja / Audiodeskrypcja”, bo dla tego wideo jeszcze ich nie ma. Zdanie o napisach znikło też z opisu kategorii „Przedmioty ścisłe”.
+- Hub `courses.html`: „Co ma każdy kurs” zmienione na „Co będzie miał każdy kurs” z uwagą, że lekcja „Liczby zespolone” nie ma jeszcze napisów, transkrypcji ani audiodeskrypcji. Kafelek „Kursy wideo” na stronie głównej nie obiecuje już napisów.
+- Odtwarzacz ma nazwę dostępną (`aria-label`).
+- `Dockerfile` kopiuje też katalog `video/`.
+- Do zrobienia: napisy po polsku (`.vtt`), transkrypcja z opisem slajdów, wersja z audiodeskrypcją (wzory i wykres płaszczyzny zespolonej). Bez nich lekcja nie spełnia WCAG 1.2.
+
 # Zmiany – 27 listopada 2026
 
 Krótki spis prac nad makietą „Akademii Śląskiej”.
@@ -6,7 +18,7 @@ Krótki spis prac nad makietą „Akademii Śląskiej”.
 
 - Nowy podział kursów jak w planie: strona główna kursów (`courses.html`, kafelki kategorii) → strony kategorii → strona lekcji.
 - Kategorie: przedmioty ścisłe, humanistyczne, artystyczne, medyczne i szkolenia (`courses-*.html`). Kategoria ścisłe ma przykładowe przedmioty i kurs, pozostałe są szkicami z placeholderem. Szkolenia zachowały dotychczasową listę kursów i przykładową lekcję o drogach ewakuacyjnych.
-- Przykładowa lekcja `lesson-math-derivatives.html`: miejsce na odtwarzacz, transkrypcja, lista lekcji.
+- Lekcja `lesson-math-complex-numbers.html` (wcześniej przykładowa „Pochodne: wstęp”): zob. zmiany z 28 listopada.
 - Pasek kategorii (zwykłe linki, nie zakładki ARIA), okruszki, lista przedmiotów z linkami do sekcji. Bez drugiego „hamburgera”.
 
 ## Plan zajęć
