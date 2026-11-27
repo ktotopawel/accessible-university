@@ -31,7 +31,7 @@
       <a class="logo" href="index.html"><span class="logo__mark" aria-hidden="true">AŚ</span>Akademia Śląska<span class="sr-only"> – strona główna</span></a>
     </div>
     <nav class="main-nav" aria-label="Główne menu">
-      <ul class="container">
+      <ul class="container" role="list">
         <li><a href="index.html">Strona główna</a></li>
         <li><a href="studies.html">Studia</a></li>
         <li><a href="accessibility.html">Dostępność</a></li>
@@ -43,9 +43,44 @@
   </header>
 
   <main id="main-content" class="container">
+    <nav class="subnav" aria-label="Kategorie kursów">
+      <ul role="list">
+        <li><a href="courses.html" aria-current="true">Wszystkie kursy</a></li>
+        <li><a href="courses-science.html">Przedmioty ścisłe</a></li>
+        <li><a href="courses-humanities.html">Przedmioty humanistyczne</a></li>
+        <li><a href="courses-arts.html">Przedmioty artystyczne</a></li>
+        <li><a href="courses-medical.html">Przedmioty medyczne</a></li>
+        <li><a href="courses-training.html">Szkolenia</a></li>
+      </ul>
+    </nav>
+
     <h1>Kursy wideo</h1>
-    <p class="lead">Szkolenia dla studentów i pracowników.</p>
-    
+    <p class="lead">Kursy i szkolenia dla studentów i pracowników. Wybierz kategorię.</p>
+
+    <h2>Kategorie</h2>
+    <ul class="tiles" role="list">
+      <li class="tile">
+        <h3><a href="courses-science.html">Przedmioty ścisłe</a></h3>
+        <p>Matematyka, fizyka, chemia, informatyka.</p>
+      </li>
+      <li class="tile">
+        <h3><a href="courses-humanities.html">Przedmioty humanistyczne</a></h3>
+        <p>Kursy z przedmiotów humanistycznych.</p>
+      </li>
+      <li class="tile">
+        <h3><a href="courses-arts.html">Przedmioty artystyczne</a></h3>
+        <p>Kursy z przedmiotów artystycznych.</p>
+      </li>
+      <li class="tile">
+        <h3><a href="courses-medical.html">Przedmioty medyczne</a></h3>
+        <p>Kursy z przedmiotów medycznych.</p>
+      </li>
+      <li class="tile">
+        <h3><a href="courses-training.html">Szkolenia</a></h3>
+        <p>BHP, pierwsza pomoc, EduPortal i dostępne materiały dydaktyczne.</p>
+      </li>
+    </ul>
+
     <h2>Co ma każdy kurs</h2>
     <ul>
       <li>napisy po polsku,</li>
@@ -53,31 +88,25 @@
       <li>audiodeskrypcję, jeśli obraz pokazuje coś, czego nie słychać,</li>
       <li>odtwarzacz obsługiwany klawiaturą, bez automatycznego odtwarzania.</li>
     </ul>
-    
-    <h2>Kursy</h2>
-    <ul>
-      <li>BHP w laboratorium i pracowni</li>
-      <li>Pierwsza pomoc – kurs podstawowy</li>
-      <li>EduPortal krok po kroku</li>
-      <li>Dostępne materiały dydaktyczne (dla prowadzących)</li>
-    </ul>
-    
-    <h2>Przykładowa lekcja: drogi ewakuacyjne</h2>
-    <div class="placeholder">Miejsce na odtwarzacz wideo z napisami i audiodeskrypcją.</div>
-    <details>
-      <summary>Transkrypcja lekcji</summary>
-      <p>[Obraz: korytarz, na ścianie zielony znak wyjścia ewakuacyjnego.]</p>
-      <p>Lektor: Drogi ewakuacyjne oznaczamy zielonymi znakami. W czasie alarmu nie korzystaj z windy.</p>
-    </details>
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <h2>Potrzebujesz pomocy?</h2>
       <ul>
-        <li>Dziekanat w Katowicach: wtorek i środa 9:00–14:00, piątek 10:00–15:00 (<a href="studies.html#dean-office">wszystkie godziny</a>)</li>
-        <li>Biuro ds. Osób z Niepełnosprawnościami: <a href="tel:+48693693989">+48 693 693 989</a>, <a href="mailto:niepelnosprawni@wst.com.pl">niepelnosprawni@wst.com.pl</a></li>
-        <li>Centrala: <a href="mailto:as@akademiaslaska.pl">as@akademiaslaska.pl</a>, ul. Rolna 43, 40-555 Katowice</li>
+        <li>
+          Dziekanat Wydziału Architektury, Budownictwa i Sztuk Stosowanych w Katowicach: wtorek i środa 9:00–14:00, piątek 10:00–15:00
+          <a href="studies.html#dean-office">Wszystkie godziny dziekanatu</a>
+        </li>
+        <li>
+          Biuro ds. Osób z Niepełnosprawnościami:
+          <a href="tel:+48693693989">+48 693 693 989</a>
+          <a href="mailto:niepelnosprawni@wst.com.pl">niepelnosprawni@wst.com.pl</a>
+        </li>
+        <li>
+          Centrala, ul. Rolna 43, 40-555 Katowice:
+          <a href="mailto:as@akademiaslaska.pl">as@akademiaslaska.pl</a>
+        </li>
       </ul>
     </div>
   </footer>

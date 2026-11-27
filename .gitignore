@@ -38,3 +38,9 @@ reports/
 # --- Environment variables and secrets ---
 .env
 .env.*
+
+#---Docker---
+Dockerfile
+.dockerignore
+
+.CLAUDE.md

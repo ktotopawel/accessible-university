@@ -81,7 +81,7 @@ a { color: var(--accent); }
 .main-nav { background: var(--accent); }
 .main-nav ul { display: flex; flex-wrap: wrap; gap: 0 1.25rem; margin: 0 auto; list-style: none; }
 .main-nav a { display: inline-block; padding-block: 0.6rem; color: var(--on-accent); font-weight: 700; text-decoration: none; }
-.main-nav a[aria-current="page"] { text-decoration: underline 4px; }
+.main-nav a[aria-current] { text-decoration: underline 4px; }
 
 main { display: block; padding-bottom: 2rem; }
 
@@ -104,6 +104,7 @@ th, td { padding: 0.5rem 1rem 0.5rem 0; text-align: left; border-bottom: 1px sol
 summary { padding-block: 0.6rem; cursor: pointer; }
 
 .site-footer { margin-top: 2rem; padding-block: 1rem; background: var(--bg-alt); }
+.site-footer a { display: block; width: fit-content; padding-block: 0.6rem; }
 
 @media (forced-colors: active) {
   .toolbar button[aria-pressed="true"] { forced-color-adjust: none; color: HighlightText; background: Highlight; }
@@ -111,3 +112,46 @@ summary { padding-block: 0.6rem; cursor: pointer; }
 
 .placeholder { margin-block: 1rem; padding: 1rem; color: #000000; background: #ff69b4; }
 .placeholder a { color: #000000; }
+
+/* --- Kursy wideo: category bar, breadcrumb, course cards, lesson page --- */
+.subnav { margin-block: 1rem; }
+.subnav ul, .breadcrumb, .jumplist, .features {
+  display: flex; flex-wrap: wrap; margin: 0; padding: 0; list-style: none; max-width: none;
+}
+.subnav ul { gap: 0.5rem; }
+.subnav a {
+  display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0.4rem 0.9rem;
+  font-weight: 600; color: var(--accent); background: var(--bg);
+  border: 2px solid var(--accent); text-decoration: none;
+}
+.subnav a[aria-current] {
+  color: var(--on-accent); background: var(--accent);
+  text-decoration: underline 3px; text-underline-offset: 0.25em;
+}
+
+.breadcrumb { gap: 0 0.5rem; }
+.breadcrumb li:not(:last-child)::after { content: "›"; content: "›" / ""; margin-left: 0.5rem; }
+.breadcrumb a { display: inline-block; padding-block: 0.6rem; }
+.breadcrumb [aria-current] { padding-block: 0.6rem; font-weight: 700; }
+
+.jumplist { gap: 0 1.25rem; }
+.jumplist a { display: inline-block; padding-block: 0.6rem; }
+.jumplist [aria-current] { display: inline-block; padding-block: 0.6rem; font-weight: 700; }
+
+.meta { margin: 0 0 0.5rem; color: var(--text-muted); }
+.features { gap: 0.5rem; margin: 0 0 1rem; }
+.features li { padding: 0.1rem 0.6rem; border: 1px solid var(--border); }
+
+.player { min-height: 12rem; display: flex; align-items: center; justify-content: center; text-align: center; }
+.player p { margin: 0; }
+
+.lessons > li[aria-current] { padding-block: 0.25rem; }
+
+/* --- Plan zajęć: one card per class, stacked lines (reflows at any zoom) --- */
+.schedule { margin: 0 0 1.5rem; padding: 0; list-style: none; }
+.schedule > li { margin-bottom: 0.75rem; padding: 0.75rem 1rem; border: 1px solid var(--border); }
+.schedule p { margin: 0 0 0.25rem; }
+.schedule__time { font-weight: 700; }
+.schedule__title { font-weight: 600; }
+.schedule__status { font-weight: 700; }
+.schedule__room a, .action a { display: inline-block; min-width: 2.75rem; min-height: 2.75rem; padding-block: 0.6rem; }
