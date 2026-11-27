@@ -53,7 +53,7 @@ Cel: **WCAG 2.2 AA**, a kontrast tekstu na poziomie AAA. W nawiasach podajemy kr
 - Transkrypcja zawsze tak samo: nagłówek „Transkrypcja”, pod nim `<details open>` z podpisem „Pokaż lub ukryj transkrypcję”.
 - Okruszki (ścieżka nawigacji) na każdej podstronie kursów – orientacja w trzech poziomach (2.4.8, dodatkowo).
 - Udogodnienia kursu (napisy, transkrypcja, audiodeskrypcja) są podane tekstem, nie samymi ikonami.
-- Pliki wideo i obrazki podglądu leżą w `video/` (np. `video/liczby-zespolone.mp4`), pod ścieżką względną od katalogu głównego. Pierwsza prawdziwa lekcja: `lesson-math-complex-numbers.html`. Napisy, transkrypcja i wersja z audiodeskrypcją nie są jeszcze gotowe i są placeholderami, więc ta lekcja nie spełnia jeszcze WCAG 1.2.
+- Pliki wideo i obrazki podglądu leżą w `video/` (np. `video/liczby-zespolone.mp4`), pod ścieżką względną od katalogu głównego. Pierwsza prawdziwa lekcja: `lesson-math-complex-numbers.html`. Napisy (`video/liczby-zespolone.pl.vtt`, włączone domyślnie przez `<track kind="captions" default>`) i transkrypcja z opisem slajdów powstały ze skryptu lektora; czasy napisów dopasowano automatycznie do przerw w nagraniu, więc warto je sprawdzić na kilku fragmentach. Wersja z audiodeskrypcją (WCAG 1.2.5) nadal jest placeholderem: narracja czyta większość wzorów, ale nie opisuje wykresu płaszczyzny zespolonej.
 - Lekcja: natywny `<video controls>`, napisy po polsku włączone domyślnie, bez autoodtwarzania (1.2.2, 1.4.2, 2.2.2). Transkrypcja pod odtwarzaczem (1.2.3). Wersja z audiodeskrypcją jako osobny film, bo przeglądarki nie odtwarzają ścieżki `kind="descriptions"` (1.2.5).
 
 ## Plan zajęć
