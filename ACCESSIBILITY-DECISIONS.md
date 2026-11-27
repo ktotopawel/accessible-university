@@ -43,6 +43,30 @@ Cel: **WCAG 2.2 AA**, a kontrast tekstu na poziomie AAA. W nawiasach podajemy kr
 - Kafelki układają się w siatce: jedna kolumna na telefonie, kilka na komputerze. Cały kafelek jest klikalny, a w środku jest jeden link (2.4.4).
 - Bez karuzel, animacji i automatycznie zmieniających się treści (2.2.2).
 
+## Kursy wideo
+
+- Układ: strona główna kursów (kafelki kategorii) → strona kategorii (przedmioty jako nagłówki `h2`, pod nimi kafelki kursów) → strona lekcji.
+- Kategorie to zwykłe linki w `nav` („Kategorie kursów”), a nie zakładki ARIA: każda kategoria to osobna strona, więc działają przycisk „wstecz”, linki bezpośrednie i brak JavaScriptu. Pasek jest zawsze widoczny, w tej samej kolejności na każdej stronie kursów (3.2.3). Bieżąca kategoria ma `aria-current` i podkreślenie (1.4.1).
+- Bez drugiego „hamburgera” na przedmioty: ukrywałby główną treść strony, wymagał JavaScriptu i dokładał drugi zwijany poziom menu. Zamiast tego lista przedmiotów z linkami do sekcji na stronie. Gdyby przedmiotów było bardzo dużo, użyjemy natywnego `<details>`.
+- `aria-current="page"` jest na stronie tylko raz, żeby czytnik ekranu nie mówił „bieżąca strona” dwa razy: na ostatnim elemencie okruszków, a na stronie głównej kursów (bez okruszków) na „Kursy wideo” w menu głównym. Pozostałe oznaczenia bieżącego miejsca (menu główne jako sekcja, pasek kategorii) mają `aria-current="true"`, a bieżąca lekcja na liście lekcji `aria-current="step"`.
+- Znany kompromis: na telefonie (320 px) pasek kategorii zajmuje ok. 310 px wysokości, więc `h1` zaczyna się nisko (przy tekście 150% jeszcze niżej). Siatka 2 kolumn łamała wyrazy w środku („humanisty-czne”), więc z niej zrezygnowaliśmy. Do rozważenia: krótsze nazwy kategorii.
+- Transkrypcja zawsze tak samo: nagłówek „Transkrypcja”, pod nim `<details open>` z podpisem „Pokaż lub ukryj transkrypcję”.
+- Okruszki (ścieżka nawigacji) na każdej podstronie kursów – orientacja w trzech poziomach (2.4.8, dodatkowo).
+- Udogodnienia kursu (napisy, transkrypcja, audiodeskrypcja) są podane tekstem, nie samymi ikonami.
+- Lekcja: natywny `<video controls>`, napisy po polsku włączone domyślnie, bez autoodtwarzania (1.2.2, 1.4.2, 2.2.2). Transkrypcja pod odtwarzaczem (1.2.1, 1.2.3). Wersja z audiodeskrypcją jako osobny film, bo przeglądarki nie odtwarzają ścieżki `kind="descriptions"` (1.2.5).
+
+## Plan zajęć
+
+- Układ jak w kursach wideo: `schedule.html` (hub z kafelkami kierunków) → `schedule-<kierunek>.html` (wybór semestru) → `schedule-<kierunek>-sem<N>.html` (plan). Na razie 5 kierunków (Informatyka, Architektura, Pielęgniarstwo, Fizjoterapia, Zarządzanie) i semestry 1 i 3, razem 10 planów. Bez podziału na wydziały. W sekcji „Plan zajęć” na stronie Studia jest tylko krótki opis i link do hubu.
+- Pasek „Kierunki” (zwykłe linki w `nav`, jak pasek kategorii w kursach) jest na każdej stronie planu, w tej samej kolejności. Okruszki: „Studia › Plan zajęć › Kierunek › Semestr”. „Studia” w menu głównym ma `aria-current="true"`, a `aria-current="page"` jest tylko na ostatnim elemencie okruszków. Na planie lista „Semestry tego kierunku” oznacza bieżący semestr `aria-current="true"`.
+- Strony planów są zwykłymi kopiami przykładowego tygodnia (bez generatora): zmianę w przykładowym planie trzeba wprowadzić we wszystkich 10 plikach `schedule-*-sem*.html`. Linki „Wróć do planu zajęć” z `campus-map.html` prowadzą do hubu.
+- Plan to listy dzień po dniu (nagłówek `h3` na dzień, `ol` z zajęciami, każde w osobnej „karcie” z liniami jedna pod drugą), a nie siatka tygodniowa ani tabela: siatka źle się czyta czytnikiem i nie mieści się na 320 px / przy tekście 150% (1.4.10). Pasek „Przejdź do dnia” skacze do dni (2.4.1).
+- Odwołanie zajęć i zmiana sali są podane tekstem („Odwołane”, „Zmiana sali”), nie kolorem (1.4.1).
+- Przy każdej sali link „Sala A 101” z ukrytym dopiskiem „– opis dostępności sali” (2.4.4) i krótka informacja o barierach obok: budynek, piętro, winda lub „tylko schody, brak windy”.
+- Opisy sal są w `campus-map.html` (nagłówek `h3` z `id` na salę, `dl` z tymi samymi polami przy każdej sali: budynek i piętro, dojście, miejsca dla osób na wózkach, pętla indukcyjna) i mają link powrotny do planu. Sala niedostępna (B 112) podaje, do kogo napisać o przeniesieniu zajęć.
+- Wybór planu to nawigacja linkami, nie formularz: wyboru nie trzeba obsługiwać polami `select`, działa bez JavaScriptu i z przyciskiem „wstecz”.
+- Prowadzący i sale w przykładzie są zmyślone („dr Jan Przykładowy”).
+
 ## Treść i multimedia
 
 - Prosty język, zwracanie się na „Ty”, linki mówią, dokąd prowadzą (2.4.4, 3.1.5).
@@ -68,7 +92,11 @@ Cel: **WCAG 2.2 AA**, a kontrast tekstu na poziomie AAA. W nawiasach podajemy kr
 - które materiały tłumaczymy na polski język migowy,
 - czy robimy wyznaczanie trasy po budynkach,
 - treść deklaracji dostępności,
-- wersja angielska.
+- wersja angielska,
+- eksport planu zajęć do kalendarza (iCal); HTML zostaje głównym źródłem, nie tylko PDF,
+- oznaczenie zajęć z tłumaczem polskiego języka migowego,
+- przechodzenie między tygodniami w planie zajęć,
+- plany pozostałych kierunków (jest 13 w ofercie) i semestrów.
 
 ## Jak sprawdzamy
 
