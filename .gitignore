@@ -39,8 +39,4 @@ reports/
 .env
 .env.*
 
-#---Docker---
-Dockerfile
-.dockerignore
-
 .CLAUDE.md
