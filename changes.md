@@ -29,7 +29,7 @@ Krótki spis prac nad makietą „Akademii Śląskiej”.
 - `CLAUDE.md`: opis projektu, komend i architektury dla Claude Code.
 - `ACCESSIBILITY-DECISIONS.md`: nowe sekcje „Kursy wideo” i „Plan zajęć”, nowe punkty „Do ustalenia”.
 - Subagent `wcag-auditor` (tylko odczyt) do audytów dostępności. Leży w `.claude/agents/wcag-auditor.md`, ale `.claude/` jest w `.gitignore`, więc jest tylko lokalnie i nie ma go w repo.
-- `Dockerfile` kopiuje teraz `*.html`. Ten plik jest w `.gitignore` i nie jest śledzony, więc ta zmiana nie jest częścią commita.
+- `Dockerfile` (nginx) i `.dockerignore`: obraz kopiuje wszystkie `*.html` z katalogu głównego oraz `css/` i `js/`, więc nowe strony nie wymagają zmian w pliku. Oba pliki są śledzone w repo.
 
 ## Znane ograniczenia
 

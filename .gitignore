@@ -39,4 +39,4 @@ reports/
 .env
 .env.*
 
-.CLAUDE.md
+.claude/
