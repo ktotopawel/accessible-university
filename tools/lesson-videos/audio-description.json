@@ -1,0 +1,75 @@
+{
+  "_comment": "Extended audio description for hand-made videos. At each `at` (seconds in the original, between captions) the frame is frozen, the lines are read by the Piper voice, then the video continues. `say` = what is spoken, `show` = caption text. Run describe.py (see README.md).",
+  "videos": [
+    {
+      "slug": "complex-numbers",
+      "source": "liczby-zespolone",
+      "output": "liczby-zespolone-ad",
+      "title": "Liczby zespolone",
+      "inserts": [
+        {
+          "at": 0.3,
+          "lines": [
+            "Wersja z audiodeskrypcją.",
+            "Gdy na ekranie jest coś, czego nie słychać, film zatrzymuje się na chwilę i opisuję obraz.",
+            "Slajd tytułowy: Matematyka dla studentów, lekcja pierwsza.",
+            "Duży tytuł: Liczby zespolone. Podtytuł: Definicja, działania i interpretacja geometryczna."
+          ]
+        },
+        {
+          "at": 51.98,
+          "lines": [
+            { "say": "Na slajdzie w ramce: zet równa się a plus be i, gdzie a i be są liczbami rzeczywistymi.", "show": "W ramce: z = a + bi, gdzie a i b są liczbami rzeczywistymi." },
+            { "say": "Część rzeczywistą zapisujemy jako Re zet, a urojoną jako Im zet.", "show": "Część rzeczywistą zapisujemy jako Re z, a urojoną jako Im z." },
+            { "say": "Przykład: zet równa się trzy plus cztery i. Re zet równa się trzy, Im zet równa się cztery.", "show": "Przykład: z = 3 + 4i, Re z = 3, Im z = 4." }
+          ]
+        },
+        {
+          "at": 71.35,
+          "lines": [
+            { "say": "Na slajdzie rozpisane mnożenie.", "show": "Na slajdzie rozpisane mnożenie." },
+            { "say": "Trzy plus cztery i, razy jeden minus dwa i, równa się: trzy, minus sześć i, plus cztery i, minus osiem i kwadrat.", "show": "(3 + 4i)(1 − 2i) = 3 − 6i + 4i − 8i²" },
+            { "say": "Po podstawieniu i kwadrat równa się minus jeden, w ramce: trzy minus dwa i plus osiem, czyli jedenaście minus dwa i.", "show": "Po podstawieniu i² = −1, w ramce: 3 − 2i + 8 = 11 − 2i." }
+          ]
+        },
+        {
+          "at": 90.68,
+          "lines": [
+            { "say": "Sprzężenie zapisuje się jako zet z poziomą kreską nad literą.", "show": "Sprzężenie zapisuje się jako z z poziomą kreską nad literą." },
+            { "say": "Dla zet równego trzy plus cztery i: zet z kreską to trzy minus cztery i.", "show": "Dla z = 3 + 4i: z z kreską = 3 − 4i." },
+            { "say": "Moduł zet to pierwiastek z trzy do kwadratu plus cztery do kwadratu, czyli pięć.", "show": "|z| = √(3² + 4²) = 5" },
+            { "say": "W ramce: zet razy zet z kreską równa się moduł zet do kwadratu, czyli dwadzieścia pięć.", "show": "W ramce: z · (z z kreską) = |z|² = 25." },
+            { "say": "Dzielenie: trzy plus cztery i, przez jeden minus dwa i, mnożymy przez jeden plus dwa i, przez jeden plus dwa i.", "show": "Dzielenie: (3 + 4i)/(1 − 2i) mnożymy przez (1 + 2i)/(1 + 2i)." },
+            { "say": "Wychodzi minus pięć plus dziesięć i, przez pięć, czyli minus jeden plus dwa i.", "show": "Wychodzi (−5 + 10i)/5 = −1 + 2i." }
+          ]
+        },
+        {
+          "at": 113.52,
+          "lines": [
+            { "say": "Po prawej wykres. Pozioma oś Re i pionowa oś Im, obie od zera do pięciu.", "show": "Po prawej wykres: pozioma oś Re i pionowa oś Im, obie od 0 do 5." },
+            { "say": "Pomarańczowy punkt zet równa się trzy plus cztery i leży nad trójką na osi Re, na wysokości cztery.", "show": "Pomarańczowy punkt z = 3 + 4i leży nad 3 na osi Re, na wysokości 4." },
+            { "say": "Przerywane linie łączą go z obiema osiami.", "show": "Przerywane linie łączą go z obiema osiami." },
+            { "say": "Niebieski odcinek od początku układu do punktu jest podpisany: moduł zet równa się pięć.", "show": "Niebieski odcinek od początku układu do punktu: |z| = 5." },
+            { "say": "Przy osi Re zielony łuk oznacza kąt fi.", "show": "Przy osi Re zielony łuk oznacza kąt φ." },
+            { "say": "Pod wzorem po lewej: kosinus fi równa się trzy piąte, sinus fi równa się cztery piąte.", "show": "Pod wzorem po lewej: cos φ = 3/5, sin φ = 4/5." }
+          ]
+        },
+        {
+          "at": 120.6,
+          "lines": [
+            { "say": "Na slajdzie trzy punkty podsumowania.", "show": "Na slajdzie trzy punkty podsumowania:" },
+            { "say": "Pierwszy: i kwadrat równa się minus jeden, oraz zet równa się a plus be i.", "show": "i² = −1, z = a + bi" },
+            { "say": "Drugi: zet z kreską równa się a minus be i, a moduł zet to pierwiastek z a kwadrat plus be kwadrat.", "show": "z z kreską = a − bi, |z| = √(a² + b²)" },
+            { "say": "Trzeci: zet równa się moduł zet, razy kosinus fi plus i sinus fi.", "show": "z = |z|(cos φ + i sin φ)" }
+          ]
+        },
+        {
+          "at": 123.6,
+          "lines": [
+            { "say": "W ramce zadanie: dla w równego dwa plus trzy i, razy jeden minus i, oblicz w oraz moduł w.", "show": "W ramce zadanie: dla w = (2 + 3i)(1 − i) oblicz w oraz |w|." }
+          ]
+        }
+      ]
+    }
+  ]
+}

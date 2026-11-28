@@ -62,8 +62,8 @@ Cel: **WCAG 2.2 AA**, a kontrast tekstu na poziomie AAA. W nawiasach podajemy kr
 - Transkrypcja zawsze tak samo: nagłówek „Transkrypcja”, pod nim `<details open>` z podpisem „Pokaż lub ukryj transkrypcję”.
 - Okruszki (ścieżka nawigacji) na każdej podstronie kursów – orientacja w trzech poziomach (2.4.8, dodatkowo).
 - Udogodnienia kursu (napisy, transkrypcja, audiodeskrypcja) są podane tekstem, nie samymi ikonami.
-- Pliki wideo i obrazki podglądu leżą w `public/video/` i są dostępne pod `/video/…` (np. `/video/liczby-zespolone.mp4`). Wszystkie lekcje rysuje jeden komponent `src/pages/courses/Lesson.jsx` z danych w `src/data/lessons.js`. Lekcja `/courses/science/complex-numbers` ma wideo zrobione ręcznie (transkrypcja w `src/data/lessonComplexNumbers.js`). Pozostałe trzy lekcje to krótkie (34–41 s) pokazy slajdów generowane narzędziem `tools/lesson-videos/` (Docker, syntezator mowy Piper z polskim głosem): z jednego pliku `lessons.json` powstają film, napisy, obrazek podglądu i transkrypcja, więc zawsze się zgadzają. Lektor czyta wszystko, co jest na slajdach, dlatego te lekcje nie potrzebują osobnej audiodeskrypcji (1.2.5). Opisy „[Obraz: …]” w transkrypcji też są generowane z tych samych danych co slajd. Napisy (`public/video/liczby-zespolone.pl.vtt`, włączone domyślnie przez `<track kind="captions" default>`) i transkrypcja z opisem slajdów powstały ze skryptu lektora; czasy napisów dopasowano automatycznie do przerw w nagraniu, więc warto je sprawdzić na kilku fragmentach. Wersja z audiodeskrypcją (WCAG 1.2.5) nadal jest placeholderem: narracja czyta większość wzorów, ale nie opisuje wykresu płaszczyzny zespolonej.
-- Lekcja: natywny `<video controls>`, napisy po polsku włączone domyślnie, bez autoodtwarzania (1.2.2, 1.4.2, 2.2.2). Transkrypcja pod odtwarzaczem (1.2.3). Wersja z audiodeskrypcją jako osobny film, bo przeglądarki nie odtwarzają ścieżki `kind="descriptions"` (1.2.5).
+- Pliki wideo i obrazki podglądu leżą w `public/video/` i są dostępne pod `/video/…` (np. `/video/liczby-zespolone.mp4`). Wszystkie lekcje rysuje jeden komponent `src/pages/courses/Lesson.jsx` z danych w `src/data/lessons.js`. Lekcja `/courses/science/complex-numbers` ma wideo zrobione ręcznie (transkrypcja w `src/data/lessonComplexNumbers.js`). Pozostałe trzy lekcje to krótkie (34–41 s) pokazy slajdów generowane narzędziem `tools/lesson-videos/` (Docker, syntezator mowy Piper z polskim głosem): z jednego pliku `lessons.json` powstają film, napisy, obrazek podglądu i transkrypcja, więc zawsze się zgadzają. Lektor czyta wszystko, co jest na slajdach, dlatego te lekcje nie potrzebują osobnej audiodeskrypcji (1.2.5). Opisy „[Obraz: …]” w transkrypcji też są generowane z tych samych danych co slajd. Napisy (`public/video/liczby-zespolone.pl.vtt`, włączone domyślnie przez `<track kind="captions" default>`) i transkrypcja z opisem slajdów powstały ze skryptu lektora; czasy napisów dopasowano automatycznie do przerw w nagraniu, więc warto je sprawdzić na kilku fragmentach. Wersja z audiodeskrypcją (1.2.5) to osobny film `/video/liczby-zespolone-ad.mp4`, zrobiony skryptem `tools/lesson-videos/describe.py` z opisów w `tools/lesson-videos/audio-description.json`. To audiodeskrypcja rozszerzona: w 7 miejscach (między kwestiami lektora) obraz się zatrzymuje, a drugi głos (Piper) opisuje to, czego narracja nie czyta – rozpisane mnożenie, sprzężenie i wynik 25, dzielenie, wykres płaszczyzny zespolonej, cos φ i sin φ, podsumowanie i treść zadania. Zwykłych przerw w nagraniu było za mało na taki opis. Film trwa przez to 4 min 58 s zamiast 2 min 12 s. Jej napisy to napisy oryginału przesunięte o wstawki plus opis (pierwsza linijka każdej wstawki zaczyna się od „Audiodeskrypcja:”).
+- Lekcja: natywny `<video controls>`, napisy po polsku włączone domyślnie, bez autoodtwarzania (1.2.2, 1.4.2, 2.2.2). Transkrypcja pod odtwarzaczem (1.2.3). Wersja z audiodeskrypcją jako osobny film, bo przeglądarki nie odtwarzają ścieżki `kind="descriptions"` (1.2.5). Wybór wersji to dwa linki nad odtwarzaczem („Zwykła wersja” / „Z audiodeskrypcją”, `aria-current="true"` na wybranej), każda wersja ma własny adres (`?wersja=audiodeskrypcja`).
 
 ## Plan zajęć
 
@@ -88,7 +88,7 @@ Cel: **WCAG 2.2 AA**, a kontrast tekstu na poziomie AAA. W nawiasach podajemy kr
 ## Mapa kampusu
 
 - Plan, opis tekstem i wyznaczanie trasy powstają z jednych danych (`src/data/campus.js`: miejsca, ścieżki, udogodnienia), więc plan i tekst zawsze mówią to samo.
-- Plan to SVG. Każdy znak to link (`<a href="#miejsce">` z `aria-label`) do opisu miejsca pod planem – działa klawiszem Tab i Enter, a czytnik ekranu czyta nazwę miejsca. Rysunek (budynki, ścieżki, trasa) jest ukryty przed czytnikiem (`aria-hidden`), bo to samo jest w tekście. Przed planem jest link „Pomiń plan” (2.4.1).
+- Plan to SVG. Każdy znak to link (`<a href="#miejsce">` z `aria-label`) do opisu miejsca pod planem – działa klawiszem Tab i Enter, a czytnik ekranu czyta nazwę miejsca. Napis widoczny na znaku („WC”, „BUS”, „P”, „i”, „Biuro OzN”) jest na początku nazwy linku (np. „WC: Toaleta dostępna – budynek A – opis”), więc osoba sterująca głosem powie to, co widzi (2.5.3). Nie w nawiasie – axe pomija nawiasy przy porównaniu. Dwie toalety mają w nazwie budynek, żeby linki się nie myliły. Podpowiedź `<title>` (dla myszy) jest na otaczającym `<g>`, poza linkiem, bo w linku liczyłaby się jako jego tekst. Rysunek (budynki, ścieżki, trasa) jest ukryty przed czytnikiem (`aria-hidden`), bo to samo jest w tekście. Przed planem jest link „Pomiń plan” (2.4.1).
 - Każdy rodzaj udogodnienia ma własny znak (drzwi, winda, „WC”, „P”, fale pętli, księżyc pokoju cichej nauki…), a bariery inny kształt: żółty trójkąt ze schodami. Nic nie zależy od samego koloru (1.4.1). Sale na piętrze mają przerywaną ramkę i dopisek „(1. piętro)”.
 - Fokus na znaku: ciemna obwódka w żółtej, widoczna na każdym tle. Ta sama obwódka zaznacza miejsce po kliknięciu „Pokaż na planie” (`:target`).
 - Plan jest mapą, więc na wąskim ekranie przesuwa się w bok w swojej ramce (wyjątek w 1.4.10). Ma szerokość w `rem`, więc rośnie z A+ / A++, a reszta strony nie przewija się w poziomie.
@@ -99,6 +99,14 @@ Cel: **WCAG 2.2 AA**, a kontrast tekstu na poziomie AAA. W nawiasach podajemy kr
 - Gdy trasy bez schodów nie ma, piszemy to wprost, podajemy powód (np. brak windy w budynku B) i kierujemy do Biura ds. Osób z Niepełnosprawnościami. Trasa najkrótsza ze schodami mówi, ile jest stopni i o ile dłuższa jest trasa bez schodów.
 - Opisy sal (`/campus-map#<sala>`) zostały, z linkami „Trasa od bramy głównej” i „Pokaż na planie”.
 - Logowanie bez CAPTCHA, z możliwością wklejenia hasła (3.3.8).
+
+## Deklaracja dostępności
+
+- Osobna strona `/accessibility/statement` (okruszki „Dostępność › Deklaracja dostępności”), link w stopce każdej strony i podsumowanie z linkiem na stronie „Dostępność”. Układ jak we wzorze deklaracji dla podmiotów publicznych, ale prostym językiem.
+- Piszemy uczciwie: strona jest „zgodna” na podstawie samooceny (wcześniej była „częściowo zgodna”, bo lekcji „Liczby zespolone” brakowało audiodeskrypcji). Jeśli znajdziemy niezgodność, wraca status „częściowo zgodna” i lista braków. Deklaracja mówi też, jak ją sprawdziliśmy (samoocena: axe, klawiatura, powiększenie, 320 px) i że testów z czytnikami ekranu jeszcze nie było. Po zmianach na stronie trzeba ją zaktualizować (`STATEMENT_DATES` w `src/data/university.js`).
+- Dostępność architektoniczna w deklaracji musi się zgadzać z mapą kampusu (`src/data/campus.js`).
+- Informacje o uczelni w polskim języku migowym i w tekście łatwym do czytania (wymaga ich ustawa o zapewnianiu dostępności osobom ze szczególnymi potrzebami, art. 6) są na razie różowymi polami w sekcji `/accessibility#informacje-pjm-etr`. Deklaracja wymienia je w „Czego jeszcze brakuje”. Status „zgodna” dotyczy ustawy o dostępności cyfrowej i WCAG, więc się nie zmienia.
+- Uczelnia, osoby i daty są fikcyjne – mówi to zdanie na końcu deklaracji.
 
 ## Strefa pracownika – logowanie
 
@@ -121,9 +129,8 @@ Cel: **WCAG 2.2 AA**, a kontrast tekstu na poziomie AAA. W nawiasach podajemy kr
 ## Do ustalenia
 
 - tryb ciemny,
-- które materiały tłumaczymy na polski język migowy,
+- które materiały tłumaczymy na polski język migowy (poza filmem o uczelni) i kto przygotuje tekst łatwy do czytania,
 - plany pięter (teraz plan pokazuje parter, a sale na piętrze są zaznaczone ramką przerywaną),
-- treść deklaracji dostępności,
 - wersja angielska,
 - eksport planu zajęć do kalendarza (iCal); HTML zostaje głównym źródłem, nie tylko PDF,
 - oznaczenie zajęć z tłumaczem polskiego języka migowego,

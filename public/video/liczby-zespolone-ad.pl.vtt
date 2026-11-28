@@ -1,0 +1,307 @@
+WEBVTT - Liczby zespolone – wersja z audiodeskrypcją (napisy po polsku)
+
+1
+00:00:00.700 --> 00:00:03.010
+Audiodeskrypcja: Wersja z audiodeskrypcją.
+
+2
+00:00:03.360 --> 00:00:09.421
+Gdy na ekranie jest coś, czego nie
+słychać, film zatrzymuje się na chwilę i opisuję obraz.
+
+3
+00:00:09.771 --> 00:00:14.473
+Slajd tytułowy: Matematyka dla studentów,
+lekcja pierwsza.
+
+4
+00:00:14.823 --> 00:00:22.172
+Duży tytuł: Liczby zespolone. Podtytuł:
+Definicja, działania i interpretacja geometryczna.
+
+5
+00:00:22.872 --> 00:00:26.676
+Dzień dobry. Witam w pierwszej lekcji o
+liczbach zespolonych.
+
+6
+00:00:27.962 --> 00:00:29.523
+Poznamy jednostkę urojoną,
+
+7
+00:00:29.863 --> 00:00:31.124
+podstawowe działania,
+
+8
+00:00:31.124 --> 00:00:34.186
+sprzężenie i moduł oraz interpretację
+geometryczną.
+
+9
+00:00:35.583 --> 00:00:37.002
+Zacznijmy od równania:
+
+10
+00:00:37.102 --> 00:00:39.359
+iks kwadrat plus jeden równa się zero.
+
+11
+00:00:39.359 --> 00:00:41.438
+Nie ma ono rozwiązań rzeczywistych,
+
+12
+00:00:41.438 --> 00:00:44.230
+bo kwadrat liczby rzeczywistej nie jest
+ujemny.
+
+13
+00:00:44.889 --> 00:00:48.105
+Wprowadzamy więc jednostkę urojoną i. Z
+definicji,
+
+14
+00:00:48.423 --> 00:00:50.347
+i kwadrat równa się minus jeden.
+
+15
+00:00:51.022 --> 00:00:54.782
+Dzięki temu nasze równanie ma dwa
+rozwiązania: i oraz minus i.
+
+16
+00:00:56.142 --> 00:00:59.624
+Liczbę zespoloną zapisujemy jako zet równa
+się a plus be i,
+
+17
+00:00:59.973 --> 00:01:02.499
+gdzie a oraz be są liczbami rzeczywistymi.
+
+18
+00:01:02.499 --> 00:01:04.303
+Liczba a to część rzeczywista,
+
+19
+00:01:04.579 --> 00:01:06.053
+a be to część urojona.
+
+20
+00:01:06.725 --> 00:01:09.163
+Na przykład, dla liczby trzy plus cztery
+i,
+
+21
+00:01:09.263 --> 00:01:11.142
+część rzeczywista wynosi trzy,
+
+22
+00:01:11.242 --> 00:01:14.421
+a część urojona cztery. Samo cztery, bez
+i.
+
+23
+00:01:14.852 --> 00:01:21.423
+Audiodeskrypcja: W ramce: z = a + bi,
+gdzie a i b są liczbami rzeczywistymi.
+
+24
+00:01:21.773 --> 00:01:26.649
+Część rzeczywistą zapisujemy jako Re z, a
+urojoną jako Im z.
+
+25
+00:01:26.999 --> 00:01:34.116
+Przykład: z = 3 + 4i, Re z = 3, Im z = 4.
+
+26
+00:01:36.017 --> 00:01:39.654
+Dodając, sumujemy osobno części
+rzeczywiste i urojone.
+
+27
+00:01:39.654 --> 00:01:41.712
+Otrzymujemy cztery plus dwa i.
+
+28
+00:01:42.377 --> 00:01:45.366
+Mnożymy tak, jak zwykłe wyrażenia
+algebraiczne,
+
+29
+00:01:45.685 --> 00:01:47.881
+czyli każdy składnik przez każdy.
+
+30
+00:01:48.252 --> 00:01:51.647
+Następnie zastępujemy i kwadrat liczbą
+minus jeden.
+
+31
+00:01:51.647 --> 00:01:54.060
+Wynik to jedenaście, minus dwa i.
+
+32
+00:01:54.486 --> 00:01:56.785
+Audiodeskrypcja: Na slajdzie rozpisane
+mnożenie.
+
+33
+00:01:57.135 --> 00:02:05.575
+(3 + 4i)(1 − 2i) = 3 − 6i + 4i − 8i²
+
+34
+00:02:05.925 --> 00:02:14.052
+Po podstawieniu i² = −1, w ramce: 3 − 2i +
+8 = 11 − 2i.
+
+35
+00:02:15.974 --> 00:02:19.107
+Sprzężenie powstaje przez zmianę znaku
+części urojonej.
+
+36
+00:02:19.107 --> 00:02:23.059
+Moduł to pierwiastek z sumy kwadratów obu
+części, tutaj pięć.
+
+37
+00:02:23.733 --> 00:02:27.339
+Iloczyn liczby i jej sprzężenia to zawsze
+kwadrat modułu.
+
+38
+00:02:27.619 --> 00:02:31.527
+Przy dzieleniu mnożymy licznik i mianownik
+przez sprzężenie mianownika.
+
+39
+00:02:31.627 --> 00:02:33.936
+Wynik to minus jeden, plus dwa i.
+
+40
+00:02:34.382 --> 00:02:38.933
+Audiodeskrypcja: Sprzężenie zapisuje się
+jako z z poziomą kreską nad literą.
+
+41
+00:02:39.283 --> 00:02:44.380
+Dla z = 3 + 4i: z z kreską = 3 − 4i.
+
+42
+00:02:44.730 --> 00:02:50.547
+|z| = √(3² + 4²) = 5
+
+43
+00:02:50.897 --> 00:02:57.654
+W ramce: z · (z z kreską) = |z|² = 25.
+
+44
+00:02:58.004 --> 00:03:05.783
+Dzielenie: (3 + 4i)/(1 − 2i) mnożymy przez
+(1 + 2i)/(1 + 2i).
+
+45
+00:03:06.133 --> 00:03:11.485
+Wychodzi (−5 + 10i)/5 = −1 + 2i.
+
+46
+00:03:13.435 --> 00:03:15.855
+Liczba zespolona to punkt na płaszczyźnie.
+
+47
+00:03:15.905 --> 00:03:18.838
+Oś pozioma jest rzeczywista, a pionowa
+urojona.
+
+48
+00:03:19.564 --> 00:03:23.292
+Moduł jest odległością tego punktu od
+początku układu. Kąt fi,
+
+49
+00:03:23.567 --> 00:03:27.810
+mierzony od dodatniej części osi
+rzeczywistej, nazywamy argumentem.
+
+50
+00:03:28.108 --> 00:03:32.808
+Stąd otrzymujemy postać trygonometryczną:
+moduł razy, w nawiasie,
+
+51
+00:03:32.808 --> 00:03:34.910
+kosinus fi plus i sinus fi.
+
+52
+00:03:35.325 --> 00:03:41.025
+Audiodeskrypcja: Po prawej wykres: pozioma
+oś Re i pionowa oś Im, obie od 0 do 5.
+
+53
+00:03:41.375 --> 00:03:47.923
+Pomarańczowy punkt z = 3 + 4i leży nad 3
+na osi Re, na wysokości 4.
+
+54
+00:03:48.273 --> 00:03:51.408
+Przerywane linie łączą go z obiema osiami.
+
+55
+00:03:51.758 --> 00:03:58.085
+Niebieski odcinek od początku układu do
+punktu: |z| = 5.
+
+56
+00:03:58.435 --> 00:04:01.407
+Przy osi Re zielony łuk oznacza kąt φ.
+
+57
+00:04:01.757 --> 00:04:07.980
+Pod wzorem po lewej: cos φ = 3/5, sin φ =
+4/5.
+
+58
+00:04:09.922 --> 00:04:13.064
+Podsumujmy: znamy jednostkę urojoną,
+działania,
+
+59
+00:04:13.409 --> 00:04:15.356
+moduł i postać trygonometryczną.
+
+60
+00:04:16.060 --> 00:04:18.673
+Audiodeskrypcja: Na slajdzie trzy punkty
+podsumowania:
+
+61
+00:04:19.023 --> 00:04:24.270
+i² = −1, z = a + bi
+
+62
+00:04:24.620 --> 00:04:32.213
+z z kreską = a − bi, |z| = √(a² + b²)
+
+63
+00:04:32.563 --> 00:04:37.915
+z = |z|(cos φ + i sin φ)
+
+64
+00:04:38.938 --> 00:04:41.475
+Na koniec zadanie do samodzielnego
+rozwiązania.
+
+65
+00:04:41.915 --> 00:04:48.974
+Audiodeskrypcja: W ramce zadanie: dla w =
+(2 + 3i)(1 − i) oblicz w oraz |w|.
+
+66
+00:04:49.634 --> 00:04:52.152
+Zatrzymaj nagranie i spróbuj je wykonać.
+
+67
+00:04:52.152 --> 00:04:55.574
+Dziękuję za uwagę i do zobaczenia w
+następnej lekcji.
+

@@ -1,30 +1,56 @@
-import { Link, useParams } from 'react-router';
-import { Breadcrumb, PageTitle, Placeholder } from '../../components/ui.jsx';
+import { Link, useParams, useSearchParams } from 'react-router';
+import { Breadcrumb, PageTitle, Placeholder, SubNav } from '../../components/ui.jsx';
 import { CourseCategoryNav } from '../../components/sectionNavs.jsx';
 import { findCategory } from '../../data/courses.js';
 import { LESSONS, findLesson, lessonMeta, lessonPath } from '../../data/lessons.js';
 import NotFound from '../NotFound.jsx';
 
+const AD_PARAM = 'audiodeskrypcja';
+
 // Native player: keyboard-operable, no autoplay (1.4.2, 2.2.2), Polish captions on by default (1.2.2).
+// A lesson with `video.described` offers a second version with audio description (1.2.5): two links
+// with their own URL (?wersja=audiodeskrypcja), so the choice is shareable and "back" works.
 function Player({ lesson }) {
-  const { video } = lesson;
-  if (!video) {
+  const [params] = useSearchParams();
+  const base = lesson.video;
+  if (!base) {
     return (
       <Placeholder className="player">
         <p>Miejsce na film z napisami po polsku i, jeśli obraz pokazuje coś, czego nie słychać, z audiodeskrypcją. Treść filmu jest już w transkrypcji poniżej.</p>
       </Placeholder>
     );
   }
+  const described = base.described && params.get('wersja') === AD_PARAM;
+  const video = described ? { ...base, ...base.described, poster: base.poster } : base;
+  const path = lessonPath(lesson);
   return (
     <>
-      {/* key: a new <video> per lesson – changing <source> on an existing element does not reload it. */}
+      {base.described && (
+        <>
+          <SubNav
+            label="Wersja filmu"
+            currentTo={described ? `${path}?wersja=${AD_PARAM}` : path}
+            items={[
+              { to: path, label: `Zwykła wersja (${lesson.duration})` },
+              { to: `${path}?wersja=${AD_PARAM}`, label: `Z audiodeskrypcją (${base.described.duration})` },
+            ]}
+          />
+          {described && (
+            <p>
+              W tej wersji film zatrzymuje się, gdy na ekranie jest coś, czego nie słychać w nagraniu, a drugi głos opisuje obraz. Napisy
+              obejmują też opis.
+            </p>
+          )}
+        </>
+      )}
+      {/* key: a new <video> per version – changing <source> on an existing element does not reload it. */}
       <video
         key={video.src}
         className="lesson-video"
         controls
         preload="metadata"
         poster={video.poster}
-        aria-label={`${lesson.title} – lekcja ${lesson.number} kursu ${lesson.course}`}
+        aria-label={`${lesson.title} – lekcja ${lesson.number} kursu ${lesson.course}${described ? ', wersja z audiodeskrypcją' : ''}`}
       >
         <source src={video.src} type="video/mp4" />
         <track kind="captions" srcLang="pl" label="Polski" src={video.captions} default />
@@ -34,7 +60,7 @@ function Player({ lesson }) {
       </video>
       <p className="action">
         <a href={video.src} download>
-          Pobierz film (MP4, {video.size})
+          Pobierz film{described ? ' z audiodeskrypcją' : ''} (MP4, {video.size})
         </a>
       </p>
     </>
@@ -66,11 +92,6 @@ export default function Lesson() {
       <p>Udogodnienia: {lesson.features}.</p>
 
       <Player lesson={lesson} />
-      {lesson.audioDescriptionTodo && (
-        <Placeholder>
-          <p>{lesson.audioDescriptionTodo}</p>
-        </Placeholder>
-      )}
 
       <h2>Rozdziały w wideo</h2>
       <ol>

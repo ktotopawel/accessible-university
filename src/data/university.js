@@ -52,3 +52,19 @@ export const IT_HELPDESK = {
   phone: { href: 'tel:+48120001050', label: '+48 12 000 10 50' },
   email: 'it@jasnogrodzka.edu.pl',
 };
+
+// Contact for the accessibility statement (/accessibility/statement).
+export const ACCESSIBILITY_CONTACT = {
+  person: 'Anna Przykładowa',
+  role: 'koordynatorka do spraw dostępności',
+  phone: { href: 'tel:+48120001030', label: '+48 12 000 10 30' },
+  email: 'dostepnosc@jasnogrodzka.edu.pl',
+  postal: 'Akademia Jasnogrodzka, ul. Słoneczna 12, 12-345 Jasnogród',
+};
+
+// Dates shown in the accessibility statement and on /accessibility.
+export const STATEMENT_DATES = {
+  published: { iso: '2026-10-01', label: '1 października 2026' },
+  updated: { iso: '2026-11-24', label: '24 listopada 2026' },
+  prepared: { iso: '2026-11-24', label: '24 listopada 2026' },
+};

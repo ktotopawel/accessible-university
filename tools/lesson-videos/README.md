@@ -25,4 +25,16 @@ docker run --rm -v "${PWD}:/work" au-lesson-videos python tools/lesson-videos/ge
 ```
 
 Pass lesson slugs to regenerate only some of them, e.g. `... generate.py hand-hygiene`.
+
+## Audio description for hand-made videos
+
+`describe.py` makes a version with **extended audio description** of an existing video
+(now: "Liczby zespolone"). `audio-description.json` lists points in the original (seconds, between
+captions) and the lines to read there: the frame is frozen, the Piper voice reads the lines, then the
+video goes on. Output: `public/video/<output>.mp4`, `public/video/<output>.pl.vtt` (original captions
+shifted + the description) and `src/data/transcripts/<slug>-ad.json` (duration, size).
+
+```powershell
+docker run --rm -v "${PWD}:/work" -w /work/tools/lesson-videos au-lesson-videos python describe.py
+```
 After regenerating, commit the files in `public/video/` and `src/data/transcripts/`.

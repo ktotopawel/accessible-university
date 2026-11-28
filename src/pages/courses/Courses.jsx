@@ -20,14 +20,17 @@ export default function Courses() {
         ))}
       </Tiles>
 
-      <h2>Co będzie miał każdy kurs</h2>
+      <h2>Co ma każda lekcja</h2>
       <ul>
         <li>napisy po polsku,</li>
         <li>transkrypcję tekstową,</li>
         <li>audiodeskrypcję, jeśli obraz pokazuje coś, czego nie słychać,</li>
         <li>odtwarzacz obsługiwany klawiaturą, bez automatycznego odtwarzania.</li>
       </ul>
-      <p>Wszystkie lekcje mają napisy i transkrypcję. Lekcja „Liczby zespolone” czeka jeszcze na wersję z audiodeskrypcją; w pozostałych lektor czyta wszystko, co widać na slajdach.</p>
+      <p>
+        Lekcja „Liczby zespolone” ma osobną wersję z audiodeskrypcją. W pozostałych lekcjach lektor czyta wszystko, co widać na
+        slajdach, więc audiodeskrypcja nie jest potrzebna.
+      </p>
     </>
   );
 }

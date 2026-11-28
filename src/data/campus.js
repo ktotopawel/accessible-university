@@ -132,13 +132,13 @@ export const FEATURES = [
   F('wejscie-a', 'entrance', 'a', 'Wejście główne', 'Bez progu, drzwi otwierają się automatycznie. Od wejścia ścieżka dotykowa prowadzi do windy i do auli.', { node: 'wej-a' }),
   F('portiernia', 'info', 'a', 'Portiernia', 'Tu zapytasz o drogę i wypożyczysz wózek na czas pobytu. Przy okienku jest pętla indukcyjna.', { node: 'hol-a', x: 345, y: 188 }),
   F('winda-a', 'lift', 'a', 'Winda', 'Obok portierni, na wszystkie piętra. Komunikaty głosowe, przyciski z opisem brajlem, drzwi szerokości 90 cm.', { node: 'winda-a' }),
-  F('wc-a', 'wc', 'a', 'Toaleta dostępna', 'Na każdym piętrze, przy holu. Przycisk wzywania pomocy.', { node: 'wc-a' }),
+  F('wc-a', 'wc', 'a', 'Toaleta dostępna – budynek A', 'Na każdym piętrze, przy holu. Przycisk wzywania pomocy.', { node: 'wc-a' }),
   F('aula', 'place', 'a', 'Aula', 'Parter. Opis w części „Sale”.', { node: 'aula', room: true, short: 'Aula' }),
   F('petla-aula', 'loop', 'a', 'Pętla indukcyjna w auli', 'Działa na całej sali. Przełącz aparat słuchowy na tryb T.', { x: 350, y: 75 }),
   F('sala-a-101', 'place', 'a', 'Sala A 101', '1. piętro. Opis w części „Sale”.', { node: 'sala-a-101', room: true, short: 'A 101', floor: 1 }),
   F('dziekanat', 'place', 'a', 'Dziekanat', 'Parter, wejście bez progu, okienko obniżone do 80 cm.', { node: 'dziekanat', short: 'Dziekanat' }),
   F('petla-dziekanat', 'loop', 'a', 'Pętla indukcyjna w dziekanacie', 'Przy okienku obsługi.', { x: 410, y: 152 }),
-  F('bon', 'place', 'a', DISABILITY_OFFICE.name, `Parter, pokój 0.12, po prawej stronie holu. Dyżury: ${DISABILITY_OFFICE.hours.toLowerCase()}.`, { node: 'bon', short: 'Biuro OzN' }),
+  F('bon', 'place', 'a', DISABILITY_OFFICE.name, `Parter, pokój 0.12, po prawej stronie holu. Dyżury: ${DISABILITY_OFFICE.hours.toLowerCase()}. Na planie podpisane skrótem „Biuro OzN” (OzN – osoby z niepełnosprawnościami).`, { node: 'bon', short: 'Biuro OzN' }),
 
   F('wejscie-b-pd', 'ramp', 'b', 'Wejście południowe z pochylnią', 'Od strony parkingu. Pochylnia o nachyleniu 6%, z poręczami, drzwi otwierane przyciskiem.', { node: 'wej-b-pd' }),
   F('wejscie-b-zach', 'barrier', 'b', 'Wejście zachodnie: 3 schody', 'Bez pochylni. Bez schodów wejdziesz do budynku B od strony parkingu.', { node: 'wej-b-zach' }),
@@ -150,7 +150,7 @@ export const FEATURES = [
   F('lada-c', 'loop', 'c', 'Lada wypożyczeń z pętlą indukcyjną', 'Przy ladzie poprosisz też o pomoc w znalezieniu książki.', { node: 'hol-c' }),
   F('czytelnia', 'place', 'c', 'Czytelnia', 'Dwa stanowiska z czytnikiem ekranu i linijką brajlowską, stoły z regulacją wysokości.', { node: 'czytelnia', short: 'Czytelnia' }),
   F('cisza', 'quiet', 'c', 'Pokój cichej nauki', 'Bez hałasu, z przygaszonym światłem – gdy potrzebujesz odpocząć od bodźców. Bez rezerwacji.', { node: 'cisza' }),
-  F('wc-c', 'wc', 'c', 'Toaleta dostępna', 'Obok holu biblioteki.', { node: 'wc-c' }),
+  F('wc-c', 'wc', 'c', 'Toaleta dostępna – biblioteka', 'Obok holu biblioteki.', { node: 'wc-c' }),
 ].map((f) => {
   const node = f.node && NODES[f.node];
   return { ...f, x: f.x ?? node.x, y: f.y ?? node.y, floor: f.floor ?? 0 };

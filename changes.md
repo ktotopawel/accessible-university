@@ -1,5 +1,26 @@
 # Zmiany – 28 listopada 2026
 
+## Poprawki po przeglądzie dostępności
+
+- Mapa kampusu: napis widoczny na znaku („WC”, „BUS”, „P”, „i”, „Biuro OzN”) jest teraz na początku nazwy linku, np. „WC: Toaleta dostępna – budynek A – opis” (2.5.3, dla osób sterujących głosem). Dwie toalety dostępne mają w nazwie budynek, więc linki „Pokaż na planie” i znaki na planie się nie mylą. axe nie zgłasza już błędów na mapie.
+- Opis Biura ds. Osób z Niepełnosprawnościami na mapie wyjaśnia skrót „Biuro OzN” z planu.
+- Kursy wideo: usunięte zdanie o brakującej audiodeskrypcji („Liczby zespolone” już ją ma), nagłówek „Co ma każda lekcja” zamiast „Co będzie miał każdy kurs”.
+- Strona „Dostępność”: nowa sekcja „Informacje o uczelni w PJM i w tekście łatwym do czytania” z miejscem na film w polskim języku migowym i na tekst łatwy do czytania. Deklaracja dostępności wymienia je w nowej części „Czego jeszcze brakuje”.
+
+## Audiodeskrypcja lekcji „Liczby zespolone”
+
+- Nowa wersja filmu z audiodeskrypcją rozszerzoną (`public/video/liczby-zespolone-ad.mp4`, 4 min 58 s): w 7 miejscach obraz się zatrzymuje, a drugi głos opisuje to, czego nie czyta lektor (rozpisane działania, wynik 25, wykres płaszczyzny zespolonej z punktem 3 + 4i, |z| = 5 i kątem φ, cos φ i sin φ, podsumowanie, treść zadania). Napisy obejmują też opis.
+- Na stronie lekcji wybór wersji: „Zwykła wersja” / „Z audiodeskrypcją”, każda z własnym adresem. Różowe pole „Miejsce na wersję z audiodeskrypcją” usunięte.
+- Nowy skrypt `tools/lesson-videos/describe.py` + opisy w `tools/lesson-videos/audio-description.json` (ten sam obraz Dockera i głos Piper co generator lekcji).
+- Deklaracja dostępności: status zmieniony na „zgodna” (na podstawie samooceny); brak audiodeskrypcji nie jest już na liście.
+
+## Deklaracja dostępności i nowy układ strony „Dostępność”
+
+- Nowa strona `/accessibility/statement` z deklaracją dostępności według układu wzoru dla podmiotów publicznych: której strony dotyczy, daty, stan dostępności (częściowa zgodność – brak audiodeskrypcji jednej lekcji), wyłączenia (plan kampusu), sposób przygotowania (samoocena), skróty klawiaturowe, kontakt, żądanie i skarga z terminami (7 dni / 2 miesiące, Rzecznik Praw Obywatelskich), dostępność architektoniczna budynków, aplikacje mobilne. Prosty język, zwracanie się na „Ty”.
+- Strona „Dostępność” podzielona na sekcje jak strona główna i Studia; biuro z kontaktem w ramce, krótkie podsumowanie deklaracji z linkiem i „Zgłoś problem z dostępnością”.
+- Link „Deklaracja dostępności” w stopce każdej strony.
+- Nowe dane w `src/data/university.js`: `ACCESSIBILITY_CONTACT` (koordynatorka do spraw dostępności, fikcyjna) i `STATEMENT_DATES`.
+
 ## Strefa pracownika: ekran logowania
 
 - Formularz logowania zamiast różowego pola: login lub e-mail uczelniany, hasło, „Pokaż hasło”, „Zaloguj się”. To pokaz – formularz niczego nie wysyła i nigdy nie loguje. Mówi to ramka nad formularzem i komunikat „Nie zalogowano” po wysłaniu (pole hasła jest wtedy czyszczone).

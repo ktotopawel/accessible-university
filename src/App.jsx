@@ -3,6 +3,7 @@ import Layout from './components/Layout.jsx';
 import Home from './pages/Home.jsx';
 import Studies from './pages/Studies.jsx';
 import Accessibility from './pages/Accessibility.jsx';
+import AccessibilityStatement from './pages/AccessibilityStatement.jsx';
 import CampusMap from './pages/CampusMap.jsx';
 import Staff from './pages/Staff.jsx';
 import Courses from './pages/courses/Courses.jsx';
@@ -20,6 +21,7 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="studies" element={<Studies />} />
         <Route path="accessibility" element={<Accessibility />} />
+        <Route path="accessibility/statement" element={<AccessibilityStatement />} />
         <Route path="campus-map" element={<CampusMap />} />
         <Route path="staff" element={<Staff />} />
 

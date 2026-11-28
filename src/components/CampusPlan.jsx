@@ -152,24 +152,33 @@ function Ring({ feature, className }) {
   return <rect className={className} x={-w / 2} y="-19" width={w} height="38" rx="8" />;
 }
 
+// Text drawn inside a marker. Label in Name (2.5.3): it must also be part of the link's name,
+// so speech-input users can say what they see ("kliknij WC").
+const MARKER_TEXT = { wc: 'WC', info: 'i', parking: 'P', bus: 'BUS' };
+
 function Marker({ feature }) {
-  const name = `${feature.name}${feature.floor ? ' (1. piętro)' : ''}`;
+  const shown = feature.type === 'place' ? feature.short : MARKER_TEXT[feature.type];
+  const inName = shown && ` ${feature.name} `.includes(` ${shown} `);
+  const name = `${shown && !inName ? `${shown}: ` : ''}${feature.name}${feature.floor ? ', 1. piętro' : ''}`;
+  // The <title> (mouse tooltip) sits on a wrapper outside the link: inside it, it would count as
+  // the link's text content and break the label-in-name check.
   return (
-    <a
-      id={`map-${feature.id}`}
-      className={`plan-marker${feature.floor ? ' plan-marker--upper' : ''}`}
-      href={`#${feature.id}`}
-      aria-label={`${name} – opis`}
-      transform={`translate(${feature.x} ${feature.y})`}
-    >
+    <g role="none" transform={`translate(${feature.x} ${feature.y})`}>
       <title>{name}</title>
-      {/* Focus / :target ring: a dark ring inside a yellow one, visible on any background. */}
-      <g className="plan-marker__ring">
-        <Ring feature={feature} className="plan-marker__ring-outer" />
-        <Ring feature={feature} className="plan-marker__ring-inner" />
-      </g>
-      <MarkerSymbol type={feature.type} label={feature.short} />
-    </a>
+      <a
+        id={`map-${feature.id}`}
+        className={`plan-marker${feature.floor ? ' plan-marker--upper' : ''}`}
+        href={`#${feature.id}`}
+        aria-label={`${name} – opis`}
+      >
+        {/* Focus / :target ring: a dark ring inside a yellow one, visible on any background. */}
+        <g className="plan-marker__ring">
+          <Ring feature={feature} className="plan-marker__ring-outer" />
+          <Ring feature={feature} className="plan-marker__ring-inner" />
+        </g>
+        <MarkerSymbol type={feature.type} label={feature.short} />
+      </a>
+    </g>
   );
 }
 
