@@ -1,5 +1,11 @@
 # Zmiany – 28 listopada 2026
 
+## Plan zajęć łatwiej znaleźć
+
+- Strona Studia: zaraz pod nagłówkiem jest wyróżniony blok „Plan zajęć” (ramka, tło, przyciski Informatyka / Pielęgniarstwo / Zarządzanie i link „Wszystkie plany zajęć”). Starą sekcję ze środka strony usunięto.
+- Strona główna: pierwszy kafelek „Na skróty” to „Plan zajęć”.
+- `css/style.css`: klasy `.highlight` (wyróżniony blok z pełną ramką, widoczną też w trybie `forced-colors`) i `.link-buttons` (linki wyglądające jak przyciski paska kategorii).
+
 ## Fikcyjna uczelnia i mniej kierunków
 
 - Nowa nazwa: „Akademia Jasnogrodzka” (fikcyjne miasto Jasnogród, znak logo „AJ”) zamiast „Akademii Śląskiej”. Zmienione tytuły stron, logo, `h1` na stronie głównej i dokumentacja.

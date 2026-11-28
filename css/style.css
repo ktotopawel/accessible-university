@@ -110,16 +110,31 @@ summary { padding-block: 0.6rem; cursor: pointer; }
   .toolbar button[aria-pressed="true"] { forced-color-adjust: none; color: HighlightText; background: Highlight; }
 }
 
+/* Highlighted block for frequently needed content (e.g. the timetable on Studia).
+   Full border, not just a background, so it stays visible in forced-colors mode. */
+.highlight {
+  margin-block: 1.5rem; padding: 0.25rem 1rem 0.5rem; max-width: 70ch;
+  background: var(--bg-alt); border: 2px solid var(--accent); border-left-width: 0.5rem;
+}
+.highlight h2 { margin-top: 0.75rem; }
+.highlight .link-buttons { margin-block: 1rem 0.5rem; }
+/* Narrow screens (and A++ text): use the full width so long programme names
+   such as "Pielęgniarstwo" are not split mid-word. */
+@media (max-width: 40rem) {
+  .highlight { margin-inline: -1rem; padding-inline: 0.75rem; border-width: 2px 0; border-left-width: 0.375rem; }
+  .highlight .link-buttons a { padding-inline: 0.6rem; }
+}
+
 .placeholder { margin-block: 1rem; padding: 1rem; color: #000000; background: #ff69b4; }
 .placeholder a { color: #000000; }
 
 /* --- Kursy wideo: category bar, breadcrumb, course cards, lesson page --- */
 .subnav { margin-block: 1rem; }
-.subnav ul, .breadcrumb, .jumplist, .features {
+.subnav ul, .link-buttons, .breadcrumb, .jumplist, .features {
   display: flex; flex-wrap: wrap; margin: 0; padding: 0; list-style: none; max-width: none;
 }
-.subnav ul { gap: 0.5rem; }
-.subnav a {
+.subnav ul, .link-buttons { gap: 0.5rem; }
+.subnav a, .link-buttons a {
   display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0.4rem 0.9rem;
   font-weight: 600; color: var(--accent); background: var(--bg);
   border: 2px solid var(--accent); text-decoration: none;
