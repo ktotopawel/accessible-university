@@ -6,7 +6,7 @@ Cel: **WCAG 2.2 AA**, a kontrast tekstu na poziomie AAA. W nawiasach podajemy kr
 
 - `lang="pl"`, regiony `header` / `nav` / `main` / `footer`, jeden `h1` i nagłówki po kolei – czytnik ekranu czyta po polsku, a użytkownik przeskakuje po regionach i nagłówkach (1.3.1, 3.1.1).
 - Link „Przejdź do treści głównej” na początku strony – nie trzeba za każdym razem przechodzić przez menu (2.4.1).
-- Każda strona ma własny tytuł „Strona – Akademia Śląska” (2.4.2).
+- Każda strona ma własny tytuł „Strona – Akademia Jasnogrodzka” (2.4.2).
 
 ## Nawigacja
 
@@ -24,7 +24,7 @@ Cel: **WCAG 2.2 AA**, a kontrast tekstu na poziomie AAA. W nawiasach podajemy kr
 
 - Kontrast tekstu co najmniej 7:1, ramek co najmniej 3:1 (1.4.6, 1.4.11).
 - Linki w tekście są podkreślone (1.4.1).
-- Czcionka Poppins, jak na akademiaslaska.pl: tekst 18 px, interlinia 1,6, wiersz do ok. 70 znaków (1.4.8, 1.4.12). Jej wadą jest podobne „I” i „l”. Jeśli przeszkodzi to w testach, zamienimy ją na Atkinson Hyperlegible.
+- Czcionka Poppins: tekst 18 px, interlinia 1,6, wiersz do ok. 70 znaków (1.4.8, 1.4.12). Jej wadą jest podobne „I” i „l”. Jeśli przeszkodzi to w testach, zamienimy ją na Atkinson Hyperlegible.
 - Rozmiary w `rem` i brak blokady powiększania na telefonie (1.4.4).
 - Strona reaguje na `prefers-contrast` i tryb dużego kontrastu w Windows.
 
@@ -58,9 +58,9 @@ Cel: **WCAG 2.2 AA**, a kontrast tekstu na poziomie AAA. W nawiasach podajemy kr
 
 ## Plan zajęć
 
-- Układ jak w kursach wideo: `schedule.html` (hub z kafelkami kierunków) → `schedule-<kierunek>.html` (wybór semestru) → `schedule-<kierunek>-sem<N>.html` (plan). Na razie 5 kierunków (Informatyka, Architektura, Pielęgniarstwo, Fizjoterapia, Zarządzanie) i semestry 1 i 3, razem 10 planów. Bez podziału na wydziały. W sekcji „Plan zajęć” na stronie Studia jest tylko krótki opis i link do hubu.
+- Układ jak w kursach wideo: `schedule.html` (hub z kafelkami kierunków) → `schedule-<kierunek>.html` (wybór semestru) → `schedule-<kierunek>-sem<N>.html` (plan). 3 kierunki (Informatyka, Pielęgniarstwo, Zarządzanie – po jednym na każdy z trzech wydziałów) i semestry 1 i 3, razem 6 planów. Bez podziału na wydziały w nawigacji. W sekcji „Plan zajęć” na stronie Studia jest tylko krótki opis i link do hubu.
 - Pasek „Kierunki” (zwykłe linki w `nav`, jak pasek kategorii w kursach) jest na każdej stronie planu, w tej samej kolejności. Okruszki: „Studia › Plan zajęć › Kierunek › Semestr”. „Studia” w menu głównym ma `aria-current="true"`, a `aria-current="page"` jest tylko na ostatnim elemencie okruszków. Na planie lista „Semestry tego kierunku” oznacza bieżący semestr `aria-current="true"`.
-- Strony planów są zwykłymi kopiami przykładowego tygodnia (bez generatora): zmianę w przykładowym planie trzeba wprowadzić we wszystkich 10 plikach `schedule-*-sem*.html`. Linki „Wróć do planu zajęć” z `campus-map.html` prowadzą do hubu.
+- Strony planów są zwykłymi kopiami przykładowego tygodnia (bez generatora): zmianę w przykładowym planie trzeba wprowadzić we wszystkich 6 plikach `schedule-*-sem*.html`. Linki „Wróć do planu zajęć” z `campus-map.html` prowadzą do hubu.
 - Plan to listy dzień po dniu (nagłówek `h3` na dzień, `ol` z zajęciami, każde w osobnej „karcie” z liniami jedna pod drugą), a nie siatka tygodniowa ani tabela: siatka źle się czyta czytnikiem i nie mieści się na 320 px / przy tekście 150% (1.4.10). Pasek „Przejdź do dnia” skacze do dni (2.4.1).
 - Odwołanie zajęć i zmiana sali są podane tekstem („Odwołane”, „Zmiana sali”), nie kolorem (1.4.1).
 - Przy każdej sali link „Sala A 101” z ukrytym dopiskiem „– opis dostępności sali” (2.4.4) i krótka informacja o barierach obok: budynek, piętro, winda lub „tylko schody, brak windy”.
@@ -97,7 +97,7 @@ Cel: **WCAG 2.2 AA**, a kontrast tekstu na poziomie AAA. W nawiasach podajemy kr
 - eksport planu zajęć do kalendarza (iCal); HTML zostaje głównym źródłem, nie tylko PDF,
 - oznaczenie zajęć z tłumaczem polskiego języka migowego,
 - przechodzenie między tygodniami w planie zajęć,
-- plany pozostałych kierunków (jest 13 w ofercie) i semestrów.
+- plany pozostałych semestrów.
 
 ## Jak sprawdzamy
 

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A static, mobile-first **mock** of an accessible university website ("Akademia Śląska") for a university design course. Plain HTML + one CSS file + one small vanilla JS file. No framework, no package manager, no build step, no test suite, no linter. All user-facing content is in **Polish** (`lang="pl"`).
+A static, mobile-first **mock** of an accessible university website ("Akademia Jasnogrodzka") for a university design course. The university is fictional (town Jasnogród; made-up contacts: `jasnogrodzka.edu.pl` e-mails, `+48 12 000 …` phones), and its offer is deliberately small: three faculties with one programme each (Informatyka, Pielęgniarstwo, Zarządzanie), so the timetable and video-course sections stay small. Plain HTML + one CSS file + one small vanilla JS file. No framework, no package manager, no build step, no test suite, no linter. All user-facing content is in **Polish** (`lang="pl"`).
 
 Remote: `https://github.com/ktotopawel/accessible-university` (branch `main`).
 
@@ -31,7 +31,7 @@ All pages (the six main-menu pages plus the video-course pages and the timetable
 
 - The inline `<script>` in `<head>`: adds the `js` class and restores `text-size-2/3` / `high-contrast` classes from `localStorage` (keys `as-text-size`, `as-high-contrast`) *before first paint* to avoid a flash. It is duplicated in every page; `js/a11y.js` (loaded with `defer`) then syncs `aria-pressed` and handles clicks via one delegated listener on `document`.
 - Skip link → `header` (toolbar + logo + `nav.main-nav` with the same 6 items) → `main#main-content` → `footer.site-footer` containing the "Potrzebujesz pomocy?" help block (same place on every page, WCAG 3.2.6).
-- Per-page differences: `<title>` ("Strona – Akademia Śląska") and which nav link carries `aria-current="page"`.
+- Per-page differences: `<title>` ("Strona – Akademia Jasnogrodzka") and which nav link carries `aria-current="page"`.
 
 ### Theming mechanism (`css/style.css`)
 
@@ -53,6 +53,6 @@ Clickable tiles use the "stretched link" pattern: one `<a>` per tile with an `::
 - Links in text stay underlined; the current nav item is marked by underline plus `aria-current`, not color alone.
 - Phones/e-mails are `tel:`/`mailto:` links; images need alt text; videos need captions + transcript.
 - Unfinished content is a `<div class="placeholder">` describing what goes there — keep that convention rather than inventing fake content.
-- Poppins is loaded from Google Fonts (matches akademiaslaska.pl); the decisions doc names Atkinson Hyperlegible as the fallback if Poppins' similar "I"/"l" hurts testing.
+- Poppins is loaded from Google Fonts; the decisions doc names Atkinson Hyperlegible as the fallback if Poppins' similar "I"/"l" hurts testing.
 
 `ACCESSIBILITY-FLOWCHART.md` is a Mermaid mind map of project scope/user groups (not code-related).

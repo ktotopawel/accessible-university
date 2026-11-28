@@ -1,5 +1,13 @@
 # Zmiany – 28 listopada 2026
 
+## Fikcyjna uczelnia i mniej kierunków
+
+- Nowa nazwa: „Akademia Jasnogrodzka” (fikcyjne miasto Jasnogród, znak logo „AJ”) zamiast „Akademii Śląskiej”. Zmienione tytuły stron, logo, `h1` na stronie głównej i dokumentacja.
+- Zmyślone dane kontaktowe zamiast prawdziwych: adres ul. Słoneczna 12, 12-345 Jasnogród, e-maile `aj@jasnogrodzka.edu.pl` i `bon@jasnogrodzka.edu.pl` (krótszy adres Biura ds. Osób z Niepełnosprawnościami nie łamie się już przy 320 px), telefony `+48 12 000 10 00` i `+48 12 000 10 20`.
+- Trzy wydziały, na każdym jeden kierunek: Wydział Nauk Technicznych (Informatyka), Wydział Nauk o Zdrowiu (Pielęgniarstwo), Wydział Nauk Społecznych i Humanistycznych (Zarządzanie). Lista kierunków na stronie Studia to teraz lista definicji (wydział → kierunek).
+- Usunięte plany zajęć Architektury i Fizjoterapii (6 plików) i kategoria kursów „Przedmioty artystyczne” (`courses-arts.html`); paski nawigacji i kafelki zaktualizowane na wszystkich stronach.
+- Stopka i dziekanat podają godziny Wydziału Nauk Technicznych; pozostałe dwa dziekanaty mają wspólne godziny.
+
 ## Kurs „Liczby zespolone”
 
 - Prawdziwe wideo `video/liczby-zespolone.mp4` (lekcja 1 kursu „Algebra dla studentów”, 2 min 12 s, 3,9 MB) z obrazkiem podglądu zamiast placeholdera odtwarzacza.
@@ -15,7 +23,7 @@
 
 # Zmiany – 27 listopada 2026
 
-Krótki spis prac nad makietą „Akademii Śląskiej”.
+Krótki spis prac nad makietą „Akademii Jasnogrodzkiej” (wtedy jeszcze „Akademii Śląskiej”).
 
 ## Kursy wideo
 
@@ -49,7 +57,6 @@ Krótki spis prac nad makietą „Akademii Śląskiej”.
 ## Znane ograniczenia
 
 - Pasek kategorii i okruszki zajmują dużo miejsca na telefonie, więc `h1` zaczyna się nisko.
-- Długi adres `niepelnosprawni@wst.com.pl` łamie się przed „pl” przy 320 px.
 - Pliki planów i kursów są kopiami, bez generatora: zmianę trzeba wprowadzić ręcznie w każdym pliku.
 - Dane przykładowe: nazwiska prowadzących, sale, tytuły kursów.
 - Nie sprawdzono czytnikami ekranu, samą klawiaturą na wszystkich stronach, powiększeniem 200–400% ani trybami `forced-colors` i `prefers-contrast`.
