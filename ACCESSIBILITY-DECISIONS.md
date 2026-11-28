@@ -100,6 +100,14 @@ Cel: **WCAG 2.2 AA**, a kontrast tekstu na poziomie AAA. W nawiasach podajemy kr
 - Opisy sal (`/campus-map#<sala>`) zostały, z linkami „Trasa od bramy głównej” i „Pokaż na planie”.
 - Logowanie bez CAPTCHA, z możliwością wklejenia hasła (3.3.8).
 
+## Strefa pracownika – logowanie
+
+- Za logowaniem nic nie ma (mock), więc formularz zawsze odmawia. Nad nim jest ramka „Uwaga: to wersja demonstracyjna… Nie wpisuj prawdziwego hasła”, a po wysłaniu komunikat „Nie zalogowano” mówi, że nic nie zostało wysłane. Hasło nie trafia nigdzie poza pole, a po próbie jest czyszczone.
+- Uwierzytelnianie bez testu poznawczego (3.3.8): bez CAPTCHA i zagadek, wklejanie działa, pola mają `autocomplete="username"` i `"current-password"`, więc menedżer haseł je wypełni. Bez limitu czasu (2.2.1).
+- Etykiety nad polami, przykład loginu pod etykietą (`aria-describedby`), „Pokaż hasło” jako zwykłe pole wyboru, ostrzeżenie o Caps Locku w obszarze `aria-live`.
+- Błędy (3.3.1, 3.3.3): lista „Popraw N błędy w formularzu” nad formularzem z linkami do pól oraz tekst „Błąd: …” przy polu (połączony z polem przez `aria-describedby`, pole ma `aria-invalid`). Po wysłaniu fokus przechodzi na listę błędów albo na komunikat, żeby czytnik ekranu go przeczytał. Błąd ma czerwoną ramkę i słowo „Błąd”, nie tylko kolor.
+- Pod formularzem „Problem z logowaniem?” z telefonem i e-mailem działu IT (pomoc dostępna, 3.2.6).
+
 ## Czego nie robimy
 
 - Nakładek dostępności (widgetów z ikoną ludzika) – nie naprawiają kodu i psują działanie czytników ekranu.

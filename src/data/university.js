@@ -44,3 +44,11 @@ export const DEAN_OFFICE = {
   others:
     'Dziekanaty Wydziału Nauk o Zdrowiu (kierunek Pielęgniarstwo) i Wydziału Nauk Społecznych i Humanistycznych (kierunek Zarządzanie): poniedziałek–piątek 9:00–15:00.',
 };
+
+// Help with logging in (staff zone).
+export const IT_HELPDESK = {
+  name: 'Dział IT – pomoc techniczna',
+  hours: 'Poniedziałek–piątek 7:30–16:00',
+  phone: { href: 'tel:+48120001050', label: '+48 12 000 10 50' },
+  email: 'it@jasnogrodzka.edu.pl',
+};

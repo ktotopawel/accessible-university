@@ -1,5 +1,13 @@
 # Zmiany – 28 listopada 2026
 
+## Strefa pracownika: ekran logowania
+
+- Formularz logowania zamiast różowego pola: login lub e-mail uczelniany, hasło, „Pokaż hasło”, „Zaloguj się”. To pokaz – formularz niczego nie wysyła i nigdy nie loguje. Mówi to ramka nad formularzem i komunikat „Nie zalogowano” po wysłaniu (pole hasła jest wtedy czyszczone).
+- Puste pola: lista błędów nad formularzem (z linkami do pól) i opis błędu przy każdym polu. Fokus przechodzi na listę błędów albo na komunikat.
+- Hasło można wkleić i wpisać menedżerem haseł (`autocomplete`), bez CAPTCHA i limitu czasu (3.3.8). Ostrzeżenie o włączonym Caps Locku.
+- „Problem z logowaniem?” z kontaktem do działu IT (nowy wpis `IT_HELPDESK` w `src/data/university.js`).
+- Lista systemów (poczta, EduPortal, wnioski) w zdaniu wstępu; „Dostępne materiały dla studentów” zostały.
+
 ## Mapa kampusu: interaktywny plan i trasy bez barier
 
 - Prawdziwy plan kampusu (budynki A i B, biblioteka, parking, przystanek, ul. Słoneczna) zamiast różowego pola. Zaznacza udogodnienia (wejścia bez progów, pochylnię, windę, toalety dostępne, pętle indukcyjne, pokój cichej nauki, portiernię, parking z kopertą, przystanek) i bariery (schody, brak windy w budynku B). Każdy rodzaj ma własny znak, nie tylko kolor; bariery to żółte trójkąty.
