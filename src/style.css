@@ -171,3 +171,7 @@ summary { padding-block: 0.6rem; cursor: pointer; }
 .schedule__title { font-weight: 600; }
 .schedule__status { font-weight: 700; }
 .schedule__room a, .action a { display: inline-block; min-width: 2.75rem; min-height: 2.75rem; padding-block: 0.6rem; }
+
+/* --- SPA route change: focus moves to the new page's h1 (src/components/Layout.jsx) ---
+   A heading is not a control, so no focus ring on it; #hash targets (rooms) keep theirs. */
+main h1[tabindex="-1"]:focus { outline: none; box-shadow: none; }

@@ -4,45 +4,69 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A static, mobile-first **mock** of an accessible university website ("Akademia Jasnogrodzka") for a university design course. The university is fictional (town Jasnogród; made-up contacts: `jasnogrodzka.edu.pl` e-mails, `+48 12 000 …` phones), and its offer is deliberately small: three faculties with one programme each (Informatyka, Pielęgniarstwo, Zarządzanie), so the timetable and video-course sections stay small. Plain HTML + one CSS file + one small vanilla JS file. No framework, no package manager, no build step, no test suite, no linter. All user-facing content is in **Polish** (`lang="pl"`).
+A mobile-first **mock** of an accessible university website ("Akademia Jasnogrodzka") for a university design course, built as a **React single-page app with Vite** (plain JavaScript/JSX, React Router). The university is fictional (town Jasnogród; made-up contacts: `jasnogrodzka.edu.pl` e-mails, `+48 12 000 …` phones), and its offer is deliberately small: three faculties with one programme each (Informatyka, Pielęgniarstwo, Zarządzanie), so the timetable and video-course sections stay small. No TypeScript, no test suite, no linter. All user-facing content is in **Polish** (`lang="pl"`).
 
 Remote: `https://github.com/ktotopawel/accessible-university` (branch `main`).
 
 ## Commands
 
 ```bash
-# Serve locally (any static server works; pages use relative links)
-python3 -m http.server 8000
+npm install
+npm run dev       # dev server (http://localhost:5173), SPA fallback built in
+npm run build     # production build into dist/
+npm run preview   # serve dist/ locally
 
-# Container build/run (nginx:1.27-alpine)
+# Container: multi-stage (node build → nginx:1.27-alpine serving dist/)
 docker build -t accessible-university .
 docker run --rm -p 8080:80 accessible-university
 ```
 
-The Dockerfile copies every top-level `*.html` (plus `css/`, `js/` and `video/`, and `nginx/default.conf`, which only adds the `text/vtt` type for `.vtt` captions), so new pages are picked up automatically, but pages must stay in the repo root (flat structure). The image bakes files in, so rebuild after every edit. `.dockerignore` excludes `*.md`.
+`nginx/default.conf` sends unknown paths to `index.html` (SPA fallback) and serves `.vtt` captions as `text/vtt`. Old static URLs (`studies.html`, `schedule-informatyka-sem1.html`, …) are redirected to the new routes by `legacyRedirect()` in `src/data/navigation.js`.
 
-After changing any page, `css/style.css` or `js/a11y.js`, run a WCAG 2.2 audit on the affected files and fix what it reports before calling the work done. If the local read-only `wcag-auditor` subagent exists (`.claude/agents/wcag-auditor.md`; `.claude/` is gitignored, so it is not part of the repo), use it.
+After changing any page, component, `src/style.css` or `index.html`, run a WCAG 2.2 audit on what changed and fix what it reports before calling the work done. If the local read-only `wcag-auditor` subagent exists (`.claude/agents/wcag-auditor.md`; `.claude/` is gitignored, so it is not part of the repo), use it. `axe-core` is a dev dependency: with `npm run dev` running, it can be loaded in the browser from `/node_modules/axe-core/axe.min.js` and run with `axe.run()`.
 
 There are no automated tests. Accessibility is checked manually / with external tools (axe, Lighthouse, keyboard-only, NVDA/VoiceOver/TalkBack, 200–400% zoom, 320 px width) — see "Jak sprawdzamy" in `ACCESSIBILITY-DECISIONS.md`.
 
 ## Architecture
 
-All pages (the six main-menu pages plus the video-course pages and the timetable pages `schedule*.html`, sub-pages of Studia whose main-menu link carries `aria-current="true"`) share **no templates or includes** — header, toolbar, nav and footer are copy-pasted into each file. Any change to shared chrome must be repeated in every page. The video-course section (`courses.html` hub → `courses-<category>.html` → `lesson-*.html`) additionally repeats a `nav.subnav` category bar in the same order on each page; each page has exactly one `aria-current="page"` (last breadcrumb item, or the main-menu "Kursy wideo" link on the hub); other "you are here" markers (main-menu section, category bar) use `"true"`, the current lesson in a lesson list uses `"step"`. Things that must stay identical across pages:
+```
+index.html                  pre-paint script (text size / contrast), fonts, #root
+src/main.jsx                BrowserRouter + App
+src/App.jsx                 all routes
+src/style.css               the only stylesheet (global, no CSS modules)
+src/components/
+  Layout.jsx                skip link → Header → main#main-content → Footer; focus management on route change
+  Header.jsx, A11yToolbar.jsx, Footer.jsx
+  ui.jsx                    PageTitle, Breadcrumb, SubNav, Tiles/Tile, Placeholder, PhoneLink, EmailLink
+  sectionNavs.jsx           CourseCategoryNav, ProgrammeNav (the bars repeated on every course / timetable page)
+src/data/                   content as data: university (name, contacts, programmes, dean's office),
+                            navigation (main menu, aria-current rules, legacy redirects),
+                            schedule (rooms, sample week), courses (categories), lesson transcript
+src/pages/                  one component per page; courses/ and schedule/ sub-folders
+public/video/               lesson video, poster and captions (served as /video/…)
+```
 
-- The inline `<script>` in `<head>`: adds the `js` class and restores `text-size-2/3` / `high-contrast` classes from `localStorage` (keys `as-text-size`, `as-high-contrast`) *before first paint* to avoid a flash. It is duplicated in every page; `js/a11y.js` (loaded with `defer`) then syncs `aria-pressed` and handles clicks via one delegated listener on `document`.
-- Skip link → `header` (toolbar + logo + `nav.main-nav` with the same 6 items) → `main#main-content` → `footer.site-footer` containing the "Potrzebujesz pomocy?" help block (same place on every page, WCAG 3.2.6).
-- Per-page differences: `<title>` ("Strona – Akademia Jasnogrodzka") and which nav link carries `aria-current="page"`.
+Routes: `/`, `/studies`, `/accessibility`, `/campus-map`, `/staff`, `/courses` → `/courses/<category>` → `/courses/science/complex-numbers`, `/schedule` → `/schedule/<programme>` → `/schedule/<programme>/semestr-<n>`. Timetable and category pages are generated from `src/data/`, so adding a programme or semester is a data change.
 
-### Theming mechanism (`css/style.css`)
+Rules the components already encode — keep them when adding pages:
+
+- **Exactly one `aria-current="page"` per page**: the main-menu link on top-level pages, otherwise the last breadcrumb item (`<Breadcrumb current=…>`). Other "you are here" markers use `"true"` (main-menu section via `MAIN_NAV[].sections`, category/programme bar via `currentTo`, current semester), the current lesson in a lesson list uses `"step"`.
+- **Every page renders `<PageTitle>`** ("Strona – Akademia Jasnogrodzka", 2.4.2; React 19 hoists `<title>` into `<head>`) and exactly one `<h1>`.
+- **Route change focus** (`useRouteFocus` in `Layout.jsx`): after navigation focus moves to the `#hash` target or the page's `<h1>` and the page scrolls to it, because an SPA gets no browser page-load announcement. Don't remove this; in-page `#links` stay plain `<a href="#…">` and are left to the browser.
+- Internal links use React Router `<Link>`; files (`/video/…`), `tel:` and `mailto:` use plain `<a>`.
+- The inline `<script>` in `index.html` adds the `js` class and restores `text-size-2/3` / `high-contrast` from `localStorage` (keys `as-text-size`, `as-high-contrast`) *before first paint*; `A11yToolbar.jsx` reads the classes as initial state and writes the same keys.
+- Contact details, programmes, rooms and dean's hours live only in `src/data/` — don't hard-code them in pages.
+
+### Theming mechanism (`src/style.css`)
 
 All colors are CSS custom properties on `:root`. The accessibility toolbar works by toggling classes on `<html>`:
 
 - `html.text-size-2` / `text-size-3` set `font-size` to 125% / 150%; everything else is in `rem`, so the whole page scales.
 - `html.high-contrast` overrides the color variables (black bg, white text, yellow accent). Components should use the variables, never hard-coded colors — exceptions are intentional: the `.contrast-toggle` button is always black/yellow, and `.placeholder` is pink (`#ff69b4`) to mark unfinished content.
 - `@media (prefers-contrast: more)` and `@media (forced-colors: active)` are handled separately from the toggle.
-- The toolbar is `display: none` unless `html.js` is set (no-JS users never see dead buttons).
+- The toolbar is `display: none` unless `html.js` is set.
 
-Clickable tiles use the "stretched link" pattern: one `<a>` per tile with an `::after` covering the tile; focus ring is moved onto the pseudo-element.
+Clickable tiles use the "stretched link" pattern: one link per tile with an `::after` covering the tile; focus ring is moved onto the pseudo-element. `.highlight` is a framed block for frequently needed content (the timetable on Studia).
 
 ## Conventions that are easy to break
 
@@ -52,7 +76,7 @@ Clickable tiles use the "stretched link" pattern: one `<a>` per tile with an `::
 - Interactive targets ≥ 44 px (`2.75rem`); no horizontal scroll from 320 px; don't disable pinch zoom.
 - Links in text stay underlined; the current nav item is marked by underline plus `aria-current`, not color alone.
 - Phones/e-mails are `tel:`/`mailto:` links; images need alt text; videos need captions + transcript.
-- Unfinished content is a `<div class="placeholder">` describing what goes there — keep that convention rather than inventing fake content.
+- Unfinished content is a `<Placeholder>` describing what goes there — keep that convention rather than inventing fake content.
 - Poppins is loaded from Google Fonts; the decisions doc names Atkinson Hyperlegible as the fallback if Poppins' similar "I"/"l" hurts testing.
 
 `ACCESSIBILITY-FLOWCHART.md` is a Mermaid mind map of project scope/user groups (not code-related).

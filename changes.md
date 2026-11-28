@@ -1,5 +1,17 @@
 # Zmiany – 28 listopada 2026
 
+## Przejście na React + Vite
+
+- Projekt jest teraz aplikacją React (Vite, React Router). Wspólne elementy (nagłówek, menu, pasek dostępności, stopka, okruszki, paski kategorii i kierunków) są komponentami w `src/components/`, więc zmienia się je w jednym miejscu, a nie w 22 plikach.
+- Treść jako dane w `src/data/`: nazwa i kontakty uczelni, kierunki, dziekanat, sale, przykładowy tydzień planu, kategorie kursów, transkrypcja lekcji. Wszystkie plany zajęć i strony kategorii powstają z tych danych.
+- Nowe adresy: `/studies`, `/schedule/informatyka/semestr-1`, `/courses/science/complex-numbers` itd. Stare adresy `*.html` przekierowują na nowe.
+- Po zmianie podstrony fokus przechodzi na `h1` (albo na `#kotwicę`), a każda strona ustawia własny `<title>`.
+- Pasek dostępności to komponent `A11yToolbar` (zamiast `js/a11y.js`); skrypt przed pierwszym renderem został w `index.html`.
+- Bez JavaScriptu wyświetla się komunikat z telefonem do uczelni.
+- Docker: budowanie w obrazie Node, serwowanie `dist/` przez nginx z przekierowaniem nieznanych adresów na `index.html`.
+- Link w Strefie pracownika do kursu „Dostępne materiały dydaktyczne” prowadzi teraz do kategorii Szkolenia, gdzie ten kurs jest, a nie do strony głównej kursów.
+- `axe-core` jako zależność deweloperska do audytów w przeglądarce.
+
 ## Plan zajęć łatwiej znaleźć
 
 - Strona Studia: zaraz pod nagłówkiem jest wyróżniony blok „Plan zajęć” (ramka, tło, przyciski Informatyka / Pielęgniarstwo / Zarządzanie i link „Wszystkie plany zajęć”). Starą sekcję ze środka strony usunięto.
@@ -63,7 +75,6 @@ Krótki spis prac nad makietą „Akademii Jasnogrodzkiej” (wtedy jeszcze „A
 ## Znane ograniczenia
 
 - Pasek kategorii i okruszki zajmują dużo miejsca na telefonie, więc `h1` zaczyna się nisko.
-- Pliki planów i kursów są kopiami, bez generatora: zmianę trzeba wprowadzić ręcznie w każdym pliku.
 - Dane przykładowe: nazwiska prowadzących, sale, tytuły kursów.
 - Nie sprawdzono czytnikami ekranu, samą klawiaturą na wszystkich stronach, powiększeniem 200–400% ani trybami `forced-colors` i `prefers-contrast`.
 - Nadal placeholdery: plan kampusu, odtwarzacz wideo z napisami i audiodeskrypcją, deklaracja dostępności, logowanie pracownika.
