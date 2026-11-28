@@ -1,29 +1,25 @@
 // Video-course categories, in the order of the category bar (same on every course page).
-// `description` is the tile text on the hub, `lead` the intro on the category page.
+// Kept small on purpose (mock): one category per programme that needs video lessons,
+// plus training for everybody. `description` is the tile text on the hub, `lead` the intro
+// on the category page.
 export const COURSE_CATEGORIES = [
   {
     slug: 'science',
     name: 'Przedmioty ścisłe',
-    description: 'Matematyka, fizyka, chemia, informatyka.',
-    lead: 'Kursy z matematyki, fizyki, chemii i informatyki.',
-  },
-  {
-    slug: 'humanities',
-    name: 'Przedmioty humanistyczne',
-    description: 'Kursy z przedmiotów humanistycznych.',
-    lead: 'Kursy z przedmiotów humanistycznych.',
+    description: 'Matematyka dla kierunku Informatyka.',
+    lead: 'Kursy z matematyki dla kierunku Informatyka.',
   },
   {
     slug: 'medical',
     name: 'Przedmioty medyczne',
-    description: 'Kursy z przedmiotów medycznych.',
-    lead: 'Kursy z przedmiotów medycznych.',
+    description: 'Podstawy pielęgniarstwa dla kierunku Pielęgniarstwo.',
+    lead: 'Kursy z podstaw pielęgniarstwa dla kierunku Pielęgniarstwo.',
   },
   {
     slug: 'training',
     name: 'Szkolenia',
-    description: 'BHP, pierwsza pomoc, EduPortal i dostępne materiały dydaktyczne.',
-    lead: 'Szkolenia dla studentów i pracowników.',
+    description: 'BHP i dostępne materiały dydaktyczne – dla studentów i pracowników.',
+    lead: 'Szkolenia dla studentów i pracowników wszystkich kierunków.',
   },
 ];
 

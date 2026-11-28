@@ -1,0 +1,146 @@
+{
+  "_comment": "Source of the generated lesson videos. Each slide: chapter (sidebar + chapter list), kind (title | list | steps | sign), title, optional subtitle/kicker/items/note, numbered (default true), narration (string, or {say, show} when the spoken form differs from the caption text). Everything shown on a slide is also read by the narrator, so no separate audio description is needed. Run: see README.md.",
+  "lessons": [
+    {
+      "slug": "hand-hygiene",
+      "file": "higiena-rak",
+      "course": "Podstawy pielęgniarstwa",
+      "module": "Lekcja 1 · Higiena rąk",
+      "slides": [
+        {
+          "chapter": "Wprowadzenie",
+          "kind": "title",
+          "kicker": "Pielęgniarstwo · Lekcja 1",
+          "title": "Higiena rąk",
+          "subtitle": "Dezynfekcja rąk w sześciu krokach",
+          "narration": ["Dzień dobry. W tej lekcji poznasz technikę dezynfekcji rąk w sześciu krokach."]
+        },
+        {
+          "chapter": "Pięć momentów",
+          "kind": "list",
+          "title": "Pięć momentów higieny rąk",
+          "items": [
+            "Przed kontaktem z pacjentem",
+            "Przed czynnością aseptyczną",
+            "Po kontakcie z płynami ustrojowymi",
+            "Po kontakcie z pacjentem",
+            "Po kontakcie z otoczeniem pacjenta"
+          ],
+          "narration": [
+            "Ręce dezynfekujemy w pięciu momentach:",
+            "przed kontaktem z pacjentem i przed czynnością aseptyczną,",
+            "po kontakcie z płynami ustrojowymi, po kontakcie z pacjentem",
+            "i po kontakcie z jego otoczeniem."
+          ]
+        },
+        {
+          "chapter": "Sześć kroków",
+          "kind": "steps",
+          "title": "Sześć kroków dezynfekcji",
+          "items": [
+            "Wewnętrzne powierzchnie dłoni",
+            "Grzbiety dłoni",
+            "Palce przeplecione",
+            "Grzbiety palców",
+            "Kciuki ruchem obrotowym",
+            "Opuszki palców"
+          ],
+          "note": "Czas: 20–30 sekund, aż dłonie wyschną",
+          "narration": [
+            "Pocieraj kolejno: wewnętrzne powierzchnie dłoni, grzbiety dłoni,",
+            "dłonie z przeplecionymi palcami, grzbiety palców,",
+            "kciuki ruchem obrotowym i opuszki palców.",
+            { "say": "Całość trwa od dwudziestu do trzydziestu sekund, aż dłonie wyschną.", "show": "Całość trwa 20–30 sekund, aż dłonie wyschną." }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "evacuation-routes",
+      "file": "drogi-ewakuacyjne",
+      "course": "Bezpieczeństwo na uczelni",
+      "module": "Lekcja 1 · Drogi ewakuacyjne",
+      "slides": [
+        {
+          "chapter": "Wprowadzenie",
+          "kind": "title",
+          "kicker": "BHP · Lekcja 1",
+          "title": "Drogi ewakuacyjne",
+          "subtitle": "Co zrobić, gdy włączy się alarm",
+          "narration": ["Ta krótka lekcja pokazuje, co zrobić, gdy włączy się alarm."]
+        },
+        {
+          "chapter": "Gdy włączy się alarm",
+          "kind": "sign",
+          "title": "Gdy włączy się alarm",
+          "items": ["Idź za zielonymi znakami wyjścia", "Nie korzystaj z windy", "Zostaw swoje rzeczy"],
+          "narration": ["Idź za zielonymi znakami wyjścia ewakuacyjnego.", "Nie korzystaj z windy i zostaw swoje rzeczy."]
+        },
+        {
+          "chapter": "Gdy nie możesz zejść",
+          "kind": "list",
+          "title": "Nie możesz zejść po schodach?",
+          "items": ["Zostań w miejscu oczekiwania przy klatce schodowej", "Powiedz o tym prowadzącemu albo zadzwoń pod 112"],
+          "narration": [
+            "Jeśli nie możesz zejść po schodach, zostań w miejscu oczekiwania przy klatce schodowej.",
+            { "say": "Powiedz o tym prowadzącemu albo zadzwoń pod numer sto dwanaście.", "show": "Powiedz o tym prowadzącemu albo zadzwoń pod numer 112." }
+          ]
+        },
+        {
+          "chapter": "Miejsce zbiórki",
+          "kind": "list",
+          "title": "Miejsce zbiórki",
+          "items": ["Parking przed budynkiem A", "Nie wracaj do budynku bez zgody straży pożarnej"],
+          "narration": [
+            "Miejsce zbiórki jest na parkingu przed budynkiem A.",
+            "Nie wracaj do budynku bez zgody straży pożarnej."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "accessible-materials",
+      "file": "dostepne-materialy",
+      "course": "Dostępne materiały dydaktyczne",
+      "module": "Lekcja 1 · Cztery zasady",
+      "slides": [
+        {
+          "chapter": "Wprowadzenie",
+          "kind": "title",
+          "kicker": "Dla prowadzących · Lekcja 1",
+          "title": "Dostępne materiały",
+          "subtitle": "Cztery zasady dla prowadzących",
+          "narration": ["Poznaj cztery zasady, dzięki którym Twoje materiały będą dostępne dla wszystkich studentów."]
+        },
+        {
+          "chapter": "Cztery zasady",
+          "kind": "list",
+          "title": "Cztery zasady",
+          "items": [
+            "Nagłówki ze stylów, nie z pogrubienia",
+            "Opis każdego zdjęcia i wykresu",
+            "Filmy z napisami i transkrypcją",
+            "Pliki tekstowe zamiast skanów"
+          ],
+          "narration": [
+            "Po pierwsze: nagłówki twórz stylami, a nie pogrubieniem.",
+            "Po drugie: dodaj opis do każdego zdjęcia i wykresu.",
+            "Po trzecie: publikuj filmy z napisami i transkrypcją.",
+            "Po czwarte: udostępniaj pliki tekstowe zamiast skanów."
+          ]
+        },
+        {
+          "chapter": "Gdzie szukać pomocy",
+          "kind": "list",
+          "title": "Potrzebujesz pomocy?",
+          "numbered": false,
+          "items": ["Biuro ds. Osób z Niepełnosprawnościami", "bon@jasnogrodzka.edu.pl"],
+          "narration": [
+            "W razie pytań napisz do Biura do spraw Osób z Niepełnosprawnościami.",
+            { "say": "Adres: bon, małpa, jasnogrodzka, kropka, edu, kropka, pe el.", "show": "Adres: bon@jasnogrodzka.edu.pl" }
+          ]
+        }
+      ]
+    }
+  ]
+}

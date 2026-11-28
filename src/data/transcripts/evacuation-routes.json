@@ -1,0 +1,41 @@
+{
+  "_generated": "by tools/lesson-videos/generate.py from lessons.json – do not edit by hand",
+  "duration": "34 s",
+  "size": "0,6 MB",
+  "chapters": [
+    "Wprowadzenie",
+    "Gdy włączy się alarm",
+    "Gdy nie możesz zejść",
+    "Miejsce zbiórki"
+  ],
+  "slides": [
+    {
+      "title": "Slajd 1: Drogi ewakuacyjne (0:00)",
+      "image": "[Obraz: Slajd tytułowy. Nagłówek „BHP · Lekcja 1”, duży tytuł „Drogi ewakuacyjne” i podtytuł „Co zrobić, gdy włączy się alarm”. Po lewej spis treści lekcji.]",
+      "narration": [
+        "Ta krótka lekcja pokazuje, co zrobić, gdy włączy się alarm."
+      ]
+    },
+    {
+      "title": "Slajd 2: Gdy włączy się alarm (0:06)",
+      "image": "[Obraz: Slajd „Gdy włączy się alarm” z listą: 1. Idź za zielonymi znakami wyjścia. 2. Nie korzystaj z windy. 3. Zostaw swoje rzeczy. Obok zielony znak wyjścia ewakuacyjnego z białą strzałką w lewo i napisem „WYJŚCIE”.]",
+      "narration": [
+        "Idź za zielonymi znakami wyjścia ewakuacyjnego. Nie korzystaj z windy i zostaw swoje rzeczy."
+      ]
+    },
+    {
+      "title": "Slajd 3: Nie możesz zejść po schodach? (0:14)",
+      "image": "[Obraz: Slajd „Nie możesz zejść po schodach?” z listą: 1. Zostań w miejscu oczekiwania przy klatce schodowej. 2. Powiedz o tym prowadzącemu albo zadzwoń pod 112.]",
+      "narration": [
+        "Jeśli nie możesz zejść po schodach, zostań w miejscu oczekiwania przy klatce schodowej. Powiedz o tym prowadzącemu albo zadzwoń pod numer 112."
+      ]
+    },
+    {
+      "title": "Slajd 4: Miejsce zbiórki (0:25)",
+      "image": "[Obraz: Slajd „Miejsce zbiórki” z listą: 1. Parking przed budynkiem A. 2. Nie wracaj do budynku bez zgody straży pożarnej.]",
+      "narration": [
+        "Miejsce zbiórki jest na parkingu przed budynkiem A. Nie wracaj do budynku bez zgody straży pożarnej."
+      ]
+    }
+  ]
+}

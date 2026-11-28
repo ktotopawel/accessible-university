@@ -1,0 +1,33 @@
+{
+  "_generated": "by tools/lesson-videos/generate.py from lessons.json – do not edit by hand",
+  "duration": "38 s",
+  "size": "0,6 MB",
+  "chapters": [
+    "Wprowadzenie",
+    "Cztery zasady",
+    "Gdzie szukać pomocy"
+  ],
+  "slides": [
+    {
+      "title": "Slajd 1: Dostępne materiały (0:00)",
+      "image": "[Obraz: Slajd tytułowy. Nagłówek „Dla prowadzących · Lekcja 1”, duży tytuł „Dostępne materiały” i podtytuł „Cztery zasady dla prowadzących”. Po lewej spis treści lekcji.]",
+      "narration": [
+        "Poznaj cztery zasady, dzięki którym Twoje materiały będą dostępne dla wszystkich studentów."
+      ]
+    },
+    {
+      "title": "Slajd 2: Cztery zasady (0:07)",
+      "image": "[Obraz: Slajd „Cztery zasady” z listą: 1. Nagłówki ze stylów, nie z pogrubienia. 2. Opis każdego zdjęcia i wykresu. 3. Filmy z napisami i transkrypcją. 4. Pliki tekstowe zamiast skanów.]",
+      "narration": [
+        "Po pierwsze: nagłówki twórz stylami, a nie pogrubieniem. Po drugie: dodaj opis do każdego zdjęcia i wykresu. Po trzecie: publikuj filmy z napisami i transkrypcją. Po czwarte: udostępniaj pliki tekstowe zamiast skanów."
+      ]
+    },
+    {
+      "title": "Slajd 3: Potrzebujesz pomocy? (0:25)",
+      "image": "[Obraz: Slajd „Potrzebujesz pomocy?” z listą: Biuro ds. Osób z Niepełnosprawnościami; bon@jasnogrodzka.edu.pl.]",
+      "narration": [
+        "W razie pytań napisz do Biura do spraw Osób z Niepełnosprawnościami. Adres: bon@jasnogrodzka.edu.pl"
+      ]
+    }
+  ]
+}

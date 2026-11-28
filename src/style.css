@@ -175,3 +175,7 @@ summary { padding-block: 0.6rem; cursor: pointer; }
 /* --- SPA route change: focus moves to the new page's h1 (src/components/Layout.jsx) ---
    A heading is not a control, so no focus ring on it; #hash targets (rooms) keep theirs. */
 main h1[tabindex="-1"]:focus { outline: none; box-shadow: none; }
+
+.text-size-label {
+  margin-right: 5px;
+}

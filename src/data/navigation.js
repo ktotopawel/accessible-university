@@ -22,6 +22,7 @@ export function mainNavCurrent(item, pathname) {
 
 // Old static-site URLs (*.html) → new routes, so old links and bookmarks still work.
 export function legacyRedirect(pathname) {
+  if (/^\/courses\/(humanities|arts)\/?$/.test(pathname)) return '/courses'; // removed categories
   const m = pathname.match(/^\/([\w-]+)\.html$/);
   if (!m) return null;
   const name = m[1];
@@ -36,6 +37,7 @@ export function legacyRedirect(pathname) {
     'lesson-math-complex-numbers': '/courses/science/complex-numbers',
   };
   if (simple[name]) return simple[name];
+  if (name === 'courses-humanities' || name === 'courses-arts') return '/courses'; // removed categories
   let x = name.match(/^courses-([\w]+)$/);
   if (x) return `/courses/${x[1]}`;
   x = name.match(/^schedule-([a-z]+)-sem(\d)$/);

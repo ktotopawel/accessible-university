@@ -1,5 +1,20 @@
 # Zmiany – 28 listopada 2026
 
+## Wygenerowane filmy do lekcji
+
+- Lekcje „Higiena rąk”, „Drogi ewakuacyjne” i „Dostępne materiały dydaktyczne” mają krótkie filmy (34–41 s): pokaz slajdów w stylu „Liczb zespolonych” z polskim lektorem (syntezator Piper, głos `pl_PL-gosia-medium`), napisami i obrazkiem podglądu.
+- Narzędzie `tools/lesson-videos/` (Dockerfile, `generate.py`, `lessons.json`): z jednego pliku powstają film, napisy, podgląd i transkrypcja (`src/data/transcripts/*.json`), więc zawsze się zgadzają. Czasy napisów są dokładne, bo każde zdanie jest syntezowane osobno.
+- Lektor czyta wszystko, co jest na slajdach, więc te lekcje nie potrzebują osobnej audiodeskrypcji. Transkrypcje i rozdziały zastąpiono tymi z filmów (są krótsze niż poprzednie szkice).
+- Do sprawdzenia przez człowieka: jak brzmi lektor (wymowa, tempo).
+
+## Kursy wideo: mniej, ale porządnie
+
+- 3 kategorie zamiast 4: Przedmioty ścisłe (Informatyka), Przedmioty medyczne (Pielęgniarstwo) i Szkolenia (dla wszystkich). Kategoria „Przedmioty humanistyczne” usunięta; stare adresy przekierowują na stronę główną kursów.
+- 4 lekcje: „Liczby zespolone” (prawdziwe wideo), „Higiena rąk – technika w 6 krokach”, „Drogi ewakuacyjne” i „Dostępne materiały dydaktyczne”. Nowe lekcje mają rozdziały i transkrypcję z opisem slajdów; zamiast odtwarzacza jest pole „Miejsce na film”.
+- Strony kategorii to kafelki lekcji (przedmiot, kurs, czas, udogodnienia tekstem), bez pustych sekcji i różowych pól.
+- Jeden komponent lekcji (`Lesson.jsx`) i dane w `src/data/lessons.js`; adresy `/courses/<kategoria>/<lekcja>`.
+- Link w Strefie pracownika prowadzi prosto do lekcji „Dostępne materiały dydaktyczne”.
+
 ## Przejście na React + Vite
 
 - Projekt jest teraz aplikacją React (Vite, React Router). Wspólne elementy (nagłówek, menu, pasek dostępności, stopka, okruszki, paski kategorii i kierunków) są komponentami w `src/components/`, więc zmienia się je w jednym miejscu, a nie w 22 plikach.

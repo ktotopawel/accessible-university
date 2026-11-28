@@ -27,7 +27,7 @@ export default function Courses() {
         <li>audiodeskrypcję, jeśli obraz pokazuje coś, czego nie słychać,</li>
         <li>odtwarzacz obsługiwany klawiaturą, bez automatycznego odtwarzania.</li>
       </ul>
-      <p>Lekcja „Liczby zespolone” ma napisy i transkrypcję. Wersja z audiodeskrypcją jest w przygotowaniu.</p>
+      <p>Wszystkie lekcje mają napisy i transkrypcję. Lekcja „Liczby zespolone” czeka jeszcze na wersję z audiodeskrypcją; w pozostałych lektor czyta wszystko, co widać na slajdach.</p>
     </>
   );
 }

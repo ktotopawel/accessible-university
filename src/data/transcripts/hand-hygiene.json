@@ -1,0 +1,33 @@
+{
+  "_generated": "by tools/lesson-videos/generate.py from lessons.json – do not edit by hand",
+  "duration": "41 s",
+  "size": "0,7 MB",
+  "chapters": [
+    "Wprowadzenie",
+    "Pięć momentów",
+    "Sześć kroków"
+  ],
+  "slides": [
+    {
+      "title": "Slajd 1: Higiena rąk (0:00)",
+      "image": "[Obraz: Slajd tytułowy. Nagłówek „Pielęgniarstwo · Lekcja 1”, duży tytuł „Higiena rąk” i podtytuł „Dezynfekcja rąk w sześciu krokach”. Po lewej spis treści lekcji.]",
+      "narration": [
+        "Dzień dobry. W tej lekcji poznasz technikę dezynfekcji rąk w sześciu krokach."
+      ]
+    },
+    {
+      "title": "Slajd 2: Pięć momentów higieny rąk (0:06)",
+      "image": "[Obraz: Slajd „Pięć momentów higieny rąk” z listą: 1. Przed kontaktem z pacjentem. 2. Przed czynnością aseptyczną. 3. Po kontakcie z płynami ustrojowymi. 4. Po kontakcie z pacjentem. 5. Po kontakcie z otoczeniem pacjenta.]",
+      "narration": [
+        "Ręce dezynfekujemy w pięciu momentach: przed kontaktem z pacjentem i przed czynnością aseptyczną, po kontakcie z płynami ustrojowymi, po kontakcie z pacjentem i po kontakcie z jego otoczeniem."
+      ]
+    },
+    {
+      "title": "Slajd 3: Sześć kroków dezynfekcji (0:22)",
+      "image": "[Obraz: Slajd „Sześć kroków dezynfekcji” z sześcioma ponumerowanymi kartami: 1. Wewnętrzne powierzchnie dłoni. 2. Grzbiety dłoni. 3. Palce przeplecione. 4. Grzbiety palców. 5. Kciuki ruchem obrotowym. 6. Opuszki palców. Pod kartami napis „Czas: 20–30 sekund, aż dłonie wyschną”.]",
+      "narration": [
+        "Pocieraj kolejno: wewnętrzne powierzchnie dłoni, grzbiety dłoni, dłonie z przeplecionymi palcami, grzbiety palców, kciuki ruchem obrotowym i opuszki palców. Całość trwa 20–30 sekund, aż dłonie wyschną."
+      ]
+    }
+  ]
+}

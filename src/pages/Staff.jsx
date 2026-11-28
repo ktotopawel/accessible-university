@@ -28,7 +28,7 @@ export default function Staff() {
         <li>Udostępniaj pliki, które da się odczytać czytnikiem ekranu.</li>
       </ul>
       <p>
-        Więcej w kursie <Link to="/courses/training">„Dostępne materiały dydaktyczne”</Link>.
+        Więcej w kursie <Link to="/courses/training/accessible-materials">„Dostępne materiały dydaktyczne”</Link>.
       </p>
     </>
   );

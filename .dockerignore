@@ -3,6 +3,7 @@
 .idea
 node_modules
 dist
+tools
 *.md
 Dockerfile
 .dockerignore
