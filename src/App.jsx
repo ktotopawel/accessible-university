@@ -4,6 +4,7 @@ import Home from './pages/Home.jsx';
 import Studies from './pages/Studies.jsx';
 import Accessibility from './pages/Accessibility.jsx';
 import AccessibilityStatement from './pages/AccessibilityStatement.jsx';
+import EasyToRead from './pages/EasyToRead.jsx';
 import CampusMap from './pages/CampusMap.jsx';
 import Staff from './pages/Staff.jsx';
 import Courses from './pages/courses/Courses.jsx';
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="studies" element={<Studies />} />
         <Route path="accessibility" element={<Accessibility />} />
         <Route path="accessibility/statement" element={<AccessibilityStatement />} />
+        <Route path="accessibility/easy-to-read" element={<EasyToRead />} />
         <Route path="campus-map" element={<CampusMap />} />
         <Route path="staff" element={<Staff />} />
 

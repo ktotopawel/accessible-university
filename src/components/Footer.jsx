@@ -22,9 +22,14 @@ export default function Footer() {
             <a href={`mailto:${UNIVERSITY.email}`}>{UNIVERSITY.email}</a>
           </li>
         </ul>
-        <p className="action">
-          <Link to="/accessibility/statement">Deklaracja dostępności</Link>
-        </p>
+        <ul className="footer-links" role="list">
+          <li className="action">
+            <Link to="/accessibility/statement">Deklaracja dostępności</Link>
+          </li>
+          <li className="action">
+            <Link to="/accessibility/easy-to-read">Tekst łatwy do czytania</Link>
+          </li>
+        </ul>
       </div>
     </footer>
   );

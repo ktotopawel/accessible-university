@@ -65,9 +65,13 @@ export default function AccessibilityStatement() {
         <h3>Czego jeszcze brakuje</h3>
         <ul>
           <li>
-            Informacji o uczelni w polskim języku migowym (film) i w tekście łatwym do czytania. Wymaga ich ustawa o zapewnianiu
-            dostępności osobom ze szczególnymi potrzebami. Przygotowujemy je – pojawią się na stronie{' '}
-            <Link to="/accessibility#informacje-pjm-etr">Dostępność</Link>.
+            Filmu w polskim języku migowym z informacjami o uczelni. Wymaga go ustawa o zapewnianiu dostępności osobom ze szczególnymi
+            potrzebami. Nagramy go z tłumaczem polskiego języka migowego.
+          </li>
+          <li>
+            Tekst łatwy do czytania o uczelni już jest:{' '}
+            <Link to="/accessibility/easy-to-read">Akademia Jasnogrodzka – tekst łatwy do czytania</Link>. Nie sprawdziły go jeszcze
+            osoby z niepełnosprawnością intelektualną i nie ma jeszcze ilustracji.
           </li>
         </ul>
 
@@ -88,6 +92,7 @@ export default function AccessibilityStatement() {
           <li>Strona działa od szerokości 320 px, bez przewijania w poziomie (poza planem kampusu, który przesuwa się w swojej ramce).</li>
           <li>Filmy mają napisy po polsku i transkrypcję, nic nie odtwarza się samo.</li>
           <li>Prosty język, linki opisujące, dokąd prowadzą, telefony i adresy e-mail jako klikalne linki.</li>
+          <li>Informacje o uczelni w tekście łatwym do czytania (link w stopce każdej strony).</li>
           <li>Logowanie bez CAPTCHA i bez limitu czasu, z możliwością wklejenia hasła.</li>
         </ul>
       </section>

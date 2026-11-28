@@ -5,7 +5,8 @@
 - Mapa kampusu: napis widoczny na znaku („WC”, „BUS”, „P”, „i”, „Biuro OzN”) jest teraz na początku nazwy linku, np. „WC: Toaleta dostępna – budynek A – opis” (2.5.3, dla osób sterujących głosem). Dwie toalety dostępne mają w nazwie budynek, więc linki „Pokaż na planie” i znaki na planie się nie mylą. axe nie zgłasza już błędów na mapie.
 - Opis Biura ds. Osób z Niepełnosprawnościami na mapie wyjaśnia skrót „Biuro OzN” z planu.
 - Kursy wideo: usunięte zdanie o brakującej audiodeskrypcji („Liczby zespolone” już ją ma), nagłówek „Co ma każda lekcja” zamiast „Co będzie miał każdy kurs”.
-- Strona „Dostępność”: nowa sekcja „Informacje o uczelni w PJM i w tekście łatwym do czytania” z miejscem na film w polskim języku migowym i na tekst łatwy do czytania. Deklaracja dostępności wymienia je w nowej części „Czego jeszcze brakuje”.
+- Nowa strona „Akademia Jasnogrodzka – tekst łatwy do czytania” (`/accessibility/easy-to-read`): czym jest uczelnia, czego uczy, gdzie jest, jak się skontaktować, pomoc dla osób z niepełnosprawnościami, jak korzystać ze strony. Link w stopce i na stronie „Dostępność”.
+- Deklaracja dostępności: nowa część „Czego jeszcze brakuje” – film w polskim języku migowym (wymaga tłumacza, nie da się go wygenerować) i sprawdzenie tekstu łatwego do czytania przez jego odbiorców.
 
 ## Audiodeskrypcja lekcji „Liczby zespolone”
 

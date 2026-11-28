@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { EmailLink, PageTitle, PhoneLink, Placeholder } from '../components/ui.jsx';
+import { EmailLink, PageTitle, PhoneLink } from '../components/ui.jsx';
 import { ACCESSIBILITY_CONTACT, DISABILITY_OFFICE, STATEMENT_DATES } from '../data/university.js';
 
 // Sections separated like Home and Studia (.page-section); the full statement has its own page.
@@ -19,22 +19,12 @@ export default function Accessibility() {
         <p>Na górze każdej strony możesz powiększyć tekst (A, A+, A++) i włączyć wysoki kontrast. Zapamiętamy wybór na tym urządzeniu.</p>
       </section>
 
-      <section className="page-section" aria-labelledby="informacje-pjm-etr">
-        <h2 id="informacje-pjm-etr">Informacje o uczelni w PJM i w tekście łatwym do czytania</h2>
-        <h3 id="pjm">Polski język migowy (PJM)</h3>
-        <Placeholder>
-          <p>
-            Miejsce na film w polskim języku migowym (z napisami): czym zajmuje się uczelnia, jak się z nami skontaktować i jak
-            zamówić tłumacza PJM. Film przygotujemy z tłumaczem i osobą głuchą.
-          </p>
-        </Placeholder>
-        <h3 id="etr">Tekst łatwy do czytania (ETR)</h3>
-        <Placeholder>
-          <p>
-            Miejsce na krótki tekst łatwy do czytania z ilustracjami: czym jest uczelnia, gdzie jest, jak się z nami skontaktować i
-            jak dostać pomoc. Tekst sprawdzą osoby z niepełnosprawnością intelektualną.
-          </p>
-        </Placeholder>
+      <section className="page-section" aria-labelledby="etr">
+        <h2 id="etr">Tekst łatwy do czytania</h2>
+        <p>Najważniejsze informacje o uczelni napisaliśmy prostymi słowami i krótkimi zdaniami.</p>
+        <p className="action">
+          <Link to="/accessibility/easy-to-read">Przeczytaj o uczelni w tekście łatwym do czytania</Link>
+        </p>
       </section>
 
       <section className="page-section" aria-labelledby="disability-office">

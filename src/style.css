@@ -175,6 +175,13 @@ summary { padding-block: 0.6rem; cursor: pointer; }
 .jumplist [aria-current] { display: inline-block; padding-block: 0.6rem; font-weight: 700; }
 
 .meta { margin: 0 0 0.5rem; color: var(--text-muted); }
+
+/* Easy-to-read text (ETR): bigger text, one short sentence per line, more space between lines. */
+.etr { font-size: 1.2rem; line-height: 1.7; }
+.etr p { margin: 0 0 0.4rem; max-width: 40ch; }
+.etr ul { max-width: 40ch; }
+.etr li { margin-block: 0.3rem; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 0 1.5rem; padding: 0; list-style: none; }
 .features { gap: 0.5rem; margin: 0 0 1rem; }
 .features li { padding: 0.1rem 0.6rem; border: 1px solid var(--border); }
 
