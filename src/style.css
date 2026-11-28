@@ -8,6 +8,16 @@
   --border: #6b7280;
   --focus-inner: #14171f;
   --focus-outer: #ffd400;
+  --error: #a4161a;
+  /* Campus plan (src/components/CampusPlan.jsx) */
+  --map-ground: #e9efe4;
+  --map-street: #d5d9df;
+  --map-building: #ffffff;
+  --map-path: #6b7280;
+  --map-corridor: #b9c0ca;
+  --map-warn: #ffe27a;
+  --map-route: #b0005a;
+  --map-on-route: #ffffff;
 }
 
 html.high-contrast {
@@ -19,6 +29,15 @@ html.high-contrast {
   --on-accent: #000000;
   --border: #ffffff;
   --focus-inner: #ffffff;
+  --error: #ff8a80;
+  --map-ground: #000000;
+  --map-street: #000000;
+  --map-building: #000000;
+  --map-path: #ffffff;
+  --map-corridor: #9ca3af;
+  --map-warn: #000000;
+  --map-route: #ffd400;
+  --map-on-route: #000000;
 }
 
 @media (prefers-contrast: more) {
@@ -41,6 +60,8 @@ body {
 }
 
 h1, h2, h3 { line-height: 1.25; }
+/* Phones (and A++ text): smaller h2, so long words such as "Udogodnienia" are not split mid-word. */
+@media (max-width: 30rem) { h2 { font-size: 1.4rem; } }
 p, ul, ol, dl, table { max-width: 70ch; }
 
 a { color: var(--accent); }
@@ -209,6 +230,114 @@ div.card { width: fit-content; max-width: 100%; margin-block: 1rem; }
 .contact {
   display: grid; gap: 0 2.5rem; padding-block: 1rem 0.5rem; max-width: none;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+}
+
+/* --- Campus map: plan, filters, route finder, text description (src/pages/CampusMap.jsx) ---
+   The plan is a map, so on narrow screens it scrolls sideways inside its frame (1.4.10 exception);
+   its width is in rem, so it grows with A+ / A++. Everything on it is also described in text. */
+.plan-filters { margin: 0 0 1rem; padding: 0.25rem 1rem 0.75rem; border: 1px solid var(--border); }
+.plan-filters legend { padding-inline: 0.25rem; font-weight: 700; }
+.plan-filters ul {
+  display: grid; gap: 0 1.5rem; margin: 0; padding: 0; list-style: none; max-width: none;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+}
+.plan-filters label, .route-form .radio {
+  display: flex; align-items: center; gap: 0.6rem; min-height: 2.75rem; cursor: pointer;
+}
+.plan-filters input, .route-form .radio input { flex: none; width: 1.4rem; height: 1.4rem; margin: 0; accent-color: var(--accent); }
+.sym-icon { flex: none; }
+.plan-frame { max-width: 56rem; overflow-x: auto; border: 2px solid var(--text); }
+.plan { display: block; width: 100%; min-width: 40rem; height: auto; }
+
+.plan-ground { fill: var(--map-ground); }
+.plan-street { fill: var(--map-street); }
+.plan-sidewalk, .plan-building { fill: var(--map-building); }
+.plan-building, .plan-parking { stroke: var(--text); stroke-width: 2; }
+.plan-parking { fill: var(--map-street); }
+.plan-parking__bay, .plan-fence { stroke: var(--text); stroke-width: 1.5; }
+.plan-fence { stroke-dasharray: 6 3; }
+.plan-label { fill: var(--text); font-size: 14px; font-weight: 700; }
+.plan-label--small { font-size: 12px; }
+.plan-north { fill: var(--text); font-size: 12px; font-weight: 700; text-anchor: middle; }
+
+.plan-path { fill: none; stroke: var(--map-path); stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+.plan-path--indoor { stroke: var(--map-corridor); stroke-width: 6; }
+.plan-path--upper { stroke: var(--map-path); stroke-width: 3; stroke-dasharray: 2 6; }
+.plan-path--stairs { stroke: var(--text); stroke-width: 12; stroke-linecap: butt; }
+.plan-path__treads { fill: none; stroke: var(--map-building); stroke-width: 12; stroke-dasharray: 2 4; }
+.plan-path__tactile-band { fill: none; stroke: #ffd400; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+.plan-path__tactile { fill: none; stroke: #14171f; stroke-width: 3; stroke-dasharray: 0 6; stroke-linecap: round; }
+
+.plan-route__casing { fill: none; stroke: var(--map-building); stroke-width: 15; stroke-linecap: round; stroke-linejoin: round; }
+.plan-route__line { fill: none; stroke: var(--map-route); stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+.plan-route__line--upper { stroke-dasharray: 10 6; stroke-linecap: butt; }
+.plan-flag rect { fill: var(--map-route); stroke: var(--map-building); stroke-width: 2; }
+.plan-flag text { fill: var(--map-on-route); font-size: 13px; font-weight: 700; text-anchor: middle; }
+
+.sym__shape { fill: var(--accent); stroke: var(--map-building); stroke-width: 2; }
+.sym__fill { fill: var(--on-accent); }
+.sym__cut { fill: var(--accent); }
+.sym__line { fill: none; stroke: var(--on-accent); stroke-width: 2; }
+.sym__text { fill: var(--on-accent); font-weight: 700; text-anchor: middle; }
+.sym--barrier .sym__shape { fill: var(--map-warn); stroke: var(--text); stroke-width: 2.5; stroke-linejoin: round; }
+.sym--barrier .sym__line { stroke: var(--text); stroke-width: 2.5; }
+.sym--place .sym__shape { fill: var(--bg); stroke: var(--accent); stroke-width: 2.5; }
+.sym--place .sym__text { fill: var(--text); }
+.plan-marker--upper .sym--place .sym__shape { stroke-dasharray: 5 3; }
+
+.plan-marker { cursor: pointer; }
+.plan-marker:focus-visible { outline: none; box-shadow: none; }
+.plan-marker__ring { visibility: hidden; fill: none; }
+.plan-marker__ring-outer { stroke: var(--focus-outer); stroke-width: 8; }
+.plan-marker__ring-inner { stroke: var(--focus-inner); stroke-width: 3; }
+.plan-marker:hover .plan-marker__ring, .plan-marker:focus-visible .plan-marker__ring,
+.plan-marker:target .plan-marker__ring { visibility: visible; }
+
+.line-legend { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; margin: 0; padding: 0; list-style: none; max-width: none; }
+.line-legend li { display: flex; align-items: center; gap: 0.5rem; }
+.line-sample { flex: none; overflow: visible; }
+
+.route-form .field { margin: 0 0 1rem; padding: 0; border: 0; }
+.route-form label:not(.radio), .route-form legend { display: block; margin-bottom: 0.25rem; font-weight: 700; }
+.route-form select {
+  width: 100%; max-width: 32rem; min-height: 2.75rem; padding: 0.25rem 0.5rem;
+  font: inherit; color: var(--text); background: var(--bg); border: 2px solid var(--border);
+}
+.route-form .hint { color: var(--text-muted); }
+.field-error { margin: 0 0 0.25rem; font-weight: 700; color: var(--error); }
+.route-form select[aria-invalid="true"] { border-color: var(--error); border-width: 3px; }
+.button {
+  min-height: 2.75rem; padding: 0.4rem 1.25rem; cursor: pointer;
+  font: inherit; font-weight: 700; color: var(--on-accent); background: var(--accent); border: 2px solid var(--accent);
+}
+.route-result { margin-block: 0 1rem; }
+.route-result h3 { scroll-margin-top: 1rem; }
+.route-steps-section { margin-top: 1.5rem; }
+.route-steps li { margin-bottom: 0.4rem; }
+
+.feature-list { margin: 0; padding: 0; list-style: none; max-width: 70ch; }
+.feature-list > li { display: flex; gap: 0.75rem; align-items: flex-start; padding-block: 0.5rem; border-bottom: 1px solid var(--border); }
+.feature-list > li .sym-icon { margin-top: 0.35rem; }
+.feature-list p { margin: 0 0 0.25rem; }
+.feature-list__links { display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+.feature-list__links a { display: inline-block; min-height: 2.75rem; padding-block: 0.6rem; }
+.feature-list > li:target, h3:target { outline: 3px solid var(--focus-inner); outline-offset: 4px; }
+
+@media (forced-colors: active) {
+  :root, html.high-contrast {
+    --map-ground: Canvas; --map-street: Canvas; --map-building: Canvas; --map-path: GrayText;
+    --map-corridor: GrayText; --map-warn: Canvas; --map-route: Highlight; --map-on-route: HighlightText;
+  }
+  .plan { forced-color-adjust: none; }
+  .sym__shape, .sym__cut { fill: LinkText; stroke: Canvas; }
+  .sym__cut { stroke: none; }
+  .sym__fill, .sym__text { fill: Canvas; }
+  .sym__line { stroke: Canvas; }
+  .sym--place .sym__shape, .sym--barrier .sym__shape { fill: Canvas; stroke: CanvasText; }
+  .sym--place .sym__text, .plan-label, .plan-north { fill: CanvasText; }
+  .sym--barrier .sym__line, .plan-building, .plan-parking, .plan-parking__bay, .plan-fence, .plan-path--stairs { stroke: CanvasText; }
+  .plan-marker__ring-outer { stroke: Highlight; }
+  .plan-marker__ring-inner { stroke: CanvasText; }
 }
 
 /* --- SPA route change: focus moves to the new page's h1 (src/components/Layout.jsx) ---

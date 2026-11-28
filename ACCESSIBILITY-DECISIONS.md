@@ -84,6 +84,20 @@ Cel: **WCAG 2.2 AA**, a kontrast tekstu na poziomie AAA. W nawiasach podajemy kr
 - Zdjęcia mają tekst alternatywny (1.1.1).
 - Filmy: napisy, transkrypcja, w razie potrzeby audiodeskrypcja, bez autoodtwarzania (1.2.x, 1.4.2).
 - Mapa kampusu opiera się na tekście, a plan graficzny jest dodatkiem. Podajemy też bariery („brak windy”), nie tylko udogodnienia.
+
+## Mapa kampusu
+
+- Plan, opis tekstem i wyznaczanie trasy powstają z jednych danych (`src/data/campus.js`: miejsca, ścieżki, udogodnienia), więc plan i tekst zawsze mówią to samo.
+- Plan to SVG. Każdy znak to link (`<a href="#miejsce">` z `aria-label`) do opisu miejsca pod planem – działa klawiszem Tab i Enter, a czytnik ekranu czyta nazwę miejsca. Rysunek (budynki, ścieżki, trasa) jest ukryty przed czytnikiem (`aria-hidden`), bo to samo jest w tekście. Przed planem jest link „Pomiń plan” (2.4.1).
+- Każdy rodzaj udogodnienia ma własny znak (drzwi, winda, „WC”, „P”, fale pętli, księżyc pokoju cichej nauki…), a bariery inny kształt: żółty trójkąt ze schodami. Nic nie zależy od samego koloru (1.4.1). Sale na piętrze mają przerywaną ramkę i dopisek „(1. piętro)”.
+- Fokus na znaku: ciemna obwódka w żółtej, widoczna na każdym tle. Ta sama obwódka zaznacza miejsce po kliknięciu „Pokaż na planie” (`:target`).
+- Plan jest mapą, więc na wąskim ekranie przesuwa się w bok w swojej ramce (wyjątek w 1.4.10). Ma szerokość w `rem`, więc rośnie z A+ / A++, a reszta strony nie przewija się w poziomie.
+- Kolory planu to zmienne CSS (`--map-…`) z wersją dla wysokiego kontrastu i dla trybu wymuszonych kolorów.
+- Filtr „Co pokazać na planie” to zwykłe pola wyboru w `fieldset` z legendą, a ikony przy nich są też legendą planu. Ukryte znaki znikają z planu (i z kolejności Tab). „Pokaż na planie” przy ukrytym rodzaju najpierw go włącza.
+- Wyznaczanie trasy: dwa pola `select` (miejsca pogrupowane w `optgroup` według budynków) i wybór rodzaju trasy („Bez schodów i progów” – domyślnie – albo „Najkrótsza”). Zwykły formularz z przyciskiem: nic się nie zmienia samo przy wyborze (3.2.2). Błąd (brak celu, cel = start) jest opisany tekstem przy polu i fokus wraca na to pole (3.3.1).
+- Wynik: opis krok po kroku (lista numerowana: dokąd iść, ile metrów, schody, winda, ścieżka dotykowa) i linia na planie. Podsumowanie trasy („Wyznaczona trasa”: skąd, dokąd, długość, czas, schody) jest tuż nad planem, a kroki tuż pod nim. Po wyznaczeniu strona przewija się do podsumowania, więc od razu widać trasę na planie (na telefonie ramka planu przesuwa się do trasy), a fokus przechodzi na nagłówek „Wyznaczona trasa”, żeby czytnik ekranu go przeczytał. Formularz zostaje pod planem. Trasa ma własny adres (`?skad=…&dokad=…&trasa=…`), działa przycisk „wstecz” i można dać do niej link.
+- Gdy trasy bez schodów nie ma, piszemy to wprost, podajemy powód (np. brak windy w budynku B) i kierujemy do Biura ds. Osób z Niepełnosprawnościami. Trasa najkrótsza ze schodami mówi, ile jest stopni i o ile dłuższa jest trasa bez schodów.
+- Opisy sal (`/campus-map#<sala>`) zostały, z linkami „Trasa od bramy głównej” i „Pokaż na planie”.
 - Logowanie bez CAPTCHA, z możliwością wklejenia hasła (3.3.8).
 
 ## Czego nie robimy
@@ -100,7 +114,7 @@ Cel: **WCAG 2.2 AA**, a kontrast tekstu na poziomie AAA. W nawiasach podajemy kr
 
 - tryb ciemny,
 - które materiały tłumaczymy na polski język migowy,
-- czy robimy wyznaczanie trasy po budynkach,
+- plany pięter (teraz plan pokazuje parter, a sale na piętrze są zaznaczone ramką przerywaną),
 - treść deklaracji dostępności,
 - wersja angielska,
 - eksport planu zajęć do kalendarza (iCal); HTML zostaje głównym źródłem, nie tylko PDF,

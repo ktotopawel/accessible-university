@@ -1,5 +1,14 @@
 # Zmiany – 28 listopada 2026
 
+## Mapa kampusu: interaktywny plan i trasy bez barier
+
+- Prawdziwy plan kampusu (budynki A i B, biblioteka, parking, przystanek, ul. Słoneczna) zamiast różowego pola. Zaznacza udogodnienia (wejścia bez progów, pochylnię, windę, toalety dostępne, pętle indukcyjne, pokój cichej nauki, portiernię, parking z kopertą, przystanek) i bariery (schody, brak windy w budynku B). Każdy rodzaj ma własny znak, nie tylko kolor; bariery to żółte trójkąty.
+- Każdy znak na planie to link do opisu miejsca, obsługiwany klawiaturą i czytnikiem ekranu. Pod planem jest ten sam opis tekstem („Udogodnienia i bariery”), a przy każdym miejscu link „Pokaż na planie”.
+- Filtr „Co pokazać na planie” (pola wyboru) ukrywa i pokazuje rodzaje znaków. Legenda jest w filtrze, linie (chodnik, ścieżka dotykowa, schody, trasa) opisane pod planem.
+- „Wyznacz trasę”: skąd, dokąd i rodzaj trasy (bez schodów i progów albo najkrótsza). Wynik to linia na planie z podsumowaniem tuż nad planem (po kliknięciu „Wyznacz trasę” strona przewija się właśnie tam) i opis krok po kroku pod planem (odległość, czas, schody, ścieżka dotykowa, winda). Gdy trasy bez schodów nie ma (sala B 112), strona mówi to wprost i kieruje do Biura ds. Osób z Niepełnosprawnościami. Trasa ma własny adres, więc można ją wysłać komuś albo dać do niej link – np. „Trasa od bramy głównej” przy każdej sali.
+- Plan działa w wysokim kontraście (żółte znaki na czarnym) i w trybie wymuszonych kolorów. Rośnie razem z A+ / A++. Na telefonie przesuwa się w bok w swojej ramce, a strona nie przewija się w poziomie.
+- Na telefonie mniejsze nagłówki `h2`, żeby długie słowa nie łamały się w środku przy tekście A++.
+
 ## Strona główna i Studia: wyraźniejsze sekcje
 
 - Studia: sekcje „Kierunki”, „Rekrutacja” i „Dziekanat” oddzielone tak samo jak na stronie głównej (wspólna klasa `.page-section`). Wydziały jako karty, informacja o dostosowaniu rekrutacji i tabela godzin dziekanatu w ramkach.
