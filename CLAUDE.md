@@ -67,7 +67,7 @@ All colors are CSS custom properties on `:root`. The accessibility toolbar works
 - `@media (prefers-contrast: more)` and `@media (forced-colors: active)` are handled separately from the toggle.
 - The toolbar is `display: none` unless `html.js` is set.
 
-Clickable tiles use the "stretched link" pattern: one link per tile with an `::after` covering the tile; focus ring is moved onto the pseudo-element. `.highlight` is a framed block for frequently needed content (the timetable on Studia).
+Clickable tiles use the "stretched link" pattern: one link per tile with an `::after` covering the tile; focus ring is moved onto the pseudo-element. `.highlight` is a framed block for frequently needed content (the timetable on Studia). The home page has `.hero` (accent banner with the `h1`). Longer pages (home, Studia) wrap each `h2` part in `section.page-section` (space + a top rule, so sections don't run together) and use `.card`/`.cards` for framed blocks (news, faculties, the dean's-office table). Blocks that rely on a background also get a (transparent) border so they stay visible in `forced-colors` mode.
 
 ## Conventions that are easy to break
 

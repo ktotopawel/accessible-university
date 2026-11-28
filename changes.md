@@ -1,5 +1,14 @@
 # Zmiany – 28 listopada 2026
 
+## Strona główna i Studia: wyraźniejsze sekcje
+
+- Studia: sekcje „Kierunki”, „Rekrutacja” i „Dziekanat” oddzielone tak samo jak na stronie głównej (wspólna klasa `.page-section`). Wydziały jako karty, informacja o dostosowaniu rekrutacji i tabela godzin dziekanatu w ramkach.
+
+- Baner z nazwą uczelni (tło w kolorze akcentu, w wysokim kontraście żółte z czarnym tekstem).
+- Sekcje „Na skróty”, „Aktualności” i „Kontakt” oddzielone odstępem i linią.
+- Aktualności jako karty obok siebie (na telefonie jedna pod drugą), kontakt w ramce, na szerokim ekranie w trzech kolumnach.
+- Na wąskim ekranie baner sięga krawędzi i ma mniejszy nagłówek, żeby nazwa uczelni nie łamała się w środku słowa przy tekście A++.
+
 ## Wygenerowane filmy do lekcji
 
 - Lekcje „Higiena rąk”, „Drogi ewakuacyjne” i „Dostępne materiały dydaktyczne” mają krótkie filmy (34–41 s): pokaz slajdów w stylu „Liczb zespolonych” z polskim lektorem (syntezator Piper, głos `pl_PL-gosia-medium`), napisami i obrazkiem podglądu.

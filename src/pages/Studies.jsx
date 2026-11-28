@@ -28,44 +28,54 @@ export default function Studies() {
         </p>
       </section>
 
-      <h2>Kierunki</h2>
-      <p>Uczelnia ma trzy wydziały. Na każdym jest jeden kierunek.</p>
-      <dl>
-        {PROGRAMMES.map((p) => (
-          <div key={p.slug}>
-            <dt>{p.faculty}</dt>
-            <dd>{p.name}</dd>
-          </div>
-        ))}
-      </dl>
-
-      <h2>Rekrutacja</h2>
-      <ol>
-        <li>Wybierz kierunek.</li>
-        <li>Załóż konto w systemie rekrutacji i wypełnij formularz.</li>
-        <li>Wnieś opłatę rekrutacyjną.</li>
-        <li>Dostarcz dokumenty.</li>
-      </ol>
-      <p>
-        Potrzebujesz dostosowania rekrutacji, np. dłuższego czasu na egzamin albo tłumacza polskiego języka migowego?{' '}
-        <Link to="/accessibility#disability-office">Skontaktuj się z Biurem ds. Osób z Niepełnosprawnościami</Link>.
-      </p>
-
-      <h2 id="dean-office">Dziekanat</h2>
-      <table>
-        <caption>
-          Godziny otwarcia dziekanatu – {DEAN_OFFICE.faculty} (kierunek {DEAN_OFFICE.programme})
-        </caption>
-        <tbody>
-          {DEAN_OFFICE.hours.map(([day, hours]) => (
-            <tr key={day}>
-              <th scope="row">{day}</th>
-              <td>{hours}</td>
-            </tr>
+      <section className="page-section">
+        <h2>Kierunki</h2>
+        <p>Uczelnia ma trzy wydziały. Na każdym jest jeden kierunek.</p>
+        <ul className="cards" role="list">
+          {PROGRAMMES.map((p) => (
+            <li key={p.slug} className="card">
+              <h3>{p.faculty}</h3>
+              <p>Kierunek: {p.name}</p>
+            </li>
           ))}
-        </tbody>
-      </table>
-      <p>{DEAN_OFFICE.others}</p>
+        </ul>
+      </section>
+
+      <section className="page-section">
+        <h2>Rekrutacja</h2>
+        <ol>
+          <li>Wybierz kierunek.</li>
+          <li>Załóż konto w systemie rekrutacji i wypełnij formularz.</li>
+          <li>Wnieś opłatę rekrutacyjną.</li>
+          <li>Dostarcz dokumenty.</li>
+        </ol>
+        <div className="card">
+          <p>
+            Potrzebujesz dostosowania rekrutacji, np. dłuższego czasu na egzamin albo tłumacza polskiego języka migowego?{' '}
+            <Link to="/accessibility#disability-office">Skontaktuj się z Biurem ds. Osób z Niepełnosprawnościami</Link>.
+          </p>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <h2 id="dean-office">Dziekanat</h2>
+        <div className="card">
+          <table className="hours">
+            <caption>
+              Godziny otwarcia dziekanatu – {DEAN_OFFICE.faculty} (kierunek {DEAN_OFFICE.programme})
+            </caption>
+            <tbody>
+              {DEAN_OFFICE.hours.map(([day, hours]) => (
+                <tr key={day}>
+                  <th scope="row">{day}</th>
+                  <td>{hours}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p>{DEAN_OFFICE.others}</p>
+      </section>
     </>
   );
 }
